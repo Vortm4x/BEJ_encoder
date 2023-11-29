@@ -1,7 +1,7 @@
 #include "bejparse_options.h"
 
 
-void set_opts(
+bool set_opts(
     int argc,
     char* const argv[],
     const long_option* long_opts,
@@ -9,6 +9,8 @@ void set_opts(
     bejparse_options* parse_opts
 )
 {
+    opterr = 1;
+
     int option_code = -1;
     while((option_code = getopt_long(argc, argv, short_opts, long_opts, NULL)) != -1)
     {
@@ -41,29 +43,148 @@ void set_opts(
             }
             case 's':
             {
-                parse_opts->schema_dictionary_path = optarg;
+                if(parse_opts->schema_dict_opt)
+                {
+                    print_option_hint(long_opts, option_code, "option duplicate");
+                    return false;
+                }
+
+                parse_opts->schema_dict_opt = true;
+                parse_opts->schema_dict_path = optarg;
                 break;
             }
             case 'a':
             {
-                parse_opts->annotation_dictionary_path = optarg;
+                if(parse_opts->annotation_dict_opt)
+                {
+                    print_option_hint(long_opts, option_code, "option duplicate");
+                    return false;
+                }
+
+                parse_opts->annotation_dict_opt = true;
+                parse_opts->annotation_dict_path = optarg;
                 break;
             }
             case 'p':
             {
+                if(parse_opts->pdrmap_file_opt)
+                {
+                    print_option_hint(long_opts, option_code, "option duplicate");
+                    return false;
+                }
+
+                parse_opts->pdrmap_file_opt = true;
                 parse_opts->pdrmap_file_path = optarg;
                 break;
             }
             case 'j':
             {
+                if(parse_opts->json_file_opt)
+                {
+                    print_option_hint(long_opts, option_code, "option duplicate");
+                    return false;
+                }
+
+                parse_opts->json_file_opt = true;
                 parse_opts->json_file_path = optarg;
                 break;
             }
             case 'b':
             {
+                if(parse_opts->bej_file_opt)
+                {
+                    print_option_hint(long_opts, option_code, "option duplicate");
+                    return false;
+                }
+
+                parse_opts->bej_file_opt = true;
                 parse_opts->bej_file_path = optarg;
+                break;
+            }
+            case '?':
+            {
+                return false;
                 break;
             }
         }
     }
+
+    return true;
+}
+
+int get_long_opt(const long_option* long_opts, const int short_code)
+{
+    int pos = -1;
+
+    for(int i = 0; long_opts[i].name != NULL; ++i)
+    {
+        if(long_opts[i].val == short_code)
+        {
+            pos = i;
+            break;
+        }
+    }
+
+    return pos;
+}
+
+void print_option_hint(const long_option* long_opts, const int option_code, const char* msg)
+{
+    int pos = get_long_opt(long_opts, option_code);
+
+    if(pos != -1)
+    {
+        fprintf(stderr,
+            "error: option -%c/--%s: %s\n",
+            long_opts[pos].val,
+            long_opts[pos].name,
+            msg
+        );
+    }
+}
+
+void print_usage_info(const char* opt_usage[])
+{
+    fprintf(stderr, "usage: COMMAND");
+
+    for(int i = 0; opt_usage[i] != NULL; ++i)
+    {
+        fprintf(stderr, "\n\t%s", opt_usage[i]);
+    }
+
+    fprintf(stderr, "\n");
+}
+
+void print_options_info(const long_option* long_opts, const char* opt_descs[])
+{
+    fprintf(stderr, "options:");
+
+    for(int i = 0; opt_descs[i] != NULL; ++i)
+    {
+        fprintf(stderr,
+            "\n\t-%c, --%-30s%s\n",
+            (char)long_opts[i].val,
+            long_opts[i].name,
+            opt_descs[i]
+        );
+    }
+}
+
+FILE* open_option_file(
+    const char* path,
+    const char* mode,
+    const long_option* long_opts,
+    const int option_code)
+{
+    FILE* file = fopen(path, mode);
+
+    if(file == NULL)
+    {
+        print_option_hint(long_opts, option_code, "can't open file");
+        perror(path);
+
+        exit(EXIT_FAILURE);
+    }
+
+    return file;
 }

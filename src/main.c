@@ -5,49 +5,6 @@
 #include "bejparse_options.h"
 
 
-void print_usage_info(const char* usage[]);
-void print_options_info(const long_option* long_opts, const char* opt_descs[]);
-void print_help(const long_option* long_opts, const char* opt_descs[], const char* usage[]);
-
-
-void print_usage_info(const char* opt_usage[])
-{
-    fprintf(stderr, "usage: COMMAND");
-
-    for(int i = 0; opt_usage[i] != NULL; ++i)
-    {
-        fprintf(stderr, "\n\t%s", opt_usage[i]);
-    }
-
-    fprintf(stderr, "\n");
-}
-
-void print_options_info(const long_option* long_opts, const char* opt_descs[])
-{
-    fprintf(stderr, "options:");
-
-    for(int i = 0; opt_descs[i] != NULL; ++i)
-    {
-        fprintf(stderr,
-            "\n\t-%c, --%-30s%s",
-            (char)long_opts[i].val,
-            long_opts[i].name,
-            opt_descs[i]
-        );
-    }
-
-    fprintf(stderr, "\n");
-}
-
-void print_help(const long_option* long_opts, const char* opt_descs[], const char* opt_usage[])
-{
-    print_usage_info(opt_usage);
-    print_options_info(long_opts, opt_descs);
-    fprintf(stderr, "\n");
-}
-
-
-
 int main(int argc, char* argv[])
 {
     // command short options
@@ -60,8 +17,8 @@ int main(int argc, char* argv[])
         { "verbose",                no_argument,        NULL, (int)'v' },
         { "encode",                 no_argument,        NULL, (int)'e' },
         { "decode",                 no_argument,        NULL, (int)'d' },
-        { "schema-dictionary",      required_argument,  NULL, (int)'s' },
-        { "annotation-dictionary",  required_argument,  NULL, (int)'a' },
+        { "schema-dict",            required_argument,  NULL, (int)'s' },
+        { "annotation-dict",        required_argument,  NULL, (int)'a' },
         { "pdrmap-file",            required_argument,  NULL, (int)'p' },
         { "json-file",              required_argument,  NULL, (int)'j' },
         { "bej-file",               required_argument,  NULL, (int)'b' },
@@ -98,35 +55,124 @@ int main(int argc, char* argv[])
     // retreve all options
     bejparse_options parse_opts;
     memset(&parse_opts, 0, sizeof(bejparse_options));
-    set_opts(argc, argv, long_opts, short_opts, &parse_opts);
-
-    // override quiet if verbose is set
-    if(parse_opts.quiet_opt && parse_opts.verbose_opt)
+    if(!set_opts(argc, argv, long_opts, short_opts, &parse_opts))
     {
-        parse_opts.quiet_opt = false;
+        print_usage_info(opt_usage);
+        return EXIT_FAILURE;
     }
 
     if(parse_opts.help_opt)
     {
         //print help
-        print_help(long_opts, opt_descs, opt_usage);
+        print_options_info(long_opts, opt_descs);
+        print_usage_info(opt_usage);
+        fprintf(stderr, "\n");
+
+        return EXIT_SUCCESS;
     }
-    else
+
+
+    // override quiet flag if verbose is set
+    if(parse_opts.quiet_opt && parse_opts.verbose_opt)
+    {
+        parse_opts.quiet_opt = false;
+    }
+
+    // annotation dict and schema dict are both required
+    if(!parse_opts.annotation_dict_opt)
+    {
+        print_option_hint(long_opts, (int)'a', "option required");
+        return EXIT_FAILURE;
+    }
+    if(!parse_opts.schema_dict_opt)
+    {
+        print_option_hint(long_opts, (int)'s', "option required");
+        return EXIT_FAILURE;
+    }
+
+    FILE* annotation_dict_file = NULL;
+    FILE* schema_dict_file = NULL;
+    FILE* json_file = NULL;
+    FILE* bej_file = NULL;
+    FILE* pdr_map_file = NULL;
+
+
+    annotation_dict_file = open_option_file(parse_opts.annotation_dict_path, "rb", long_opts, (int)'a');
+    schema_dict_file = open_option_file(parse_opts.schema_dict_path, "rb", long_opts, (int)'s');
+
     if(parse_opts.encode_opt && !parse_opts.decode_opt)
     {
         //encode
-        fprintf(stderr, "TODO: %s\n", "encode");
+
+        if(parse_opts.json_file_opt)
+        {
+            json_file = open_option_file(parse_opts.json_file_path, "r", long_opts, (int)'j');
+        }
+        else
+        {
+            json_file = stdin;
+        }
+
+        if(parse_opts.bej_file_opt)
+        {
+            bej_file = open_option_file(parse_opts.json_file_path, "wb", long_opts, (int)'b');
+        }
+        else
+        {
+            bej_file = stdout;
+        }
+
+        if(parse_opts.pdrmap_file_opt)
+        {
+            pdr_map_file = open_option_file(parse_opts.json_file_path, "w", long_opts, (int)'p');
+        }
+
+        //TODO: encode
+
     }
     else
     if(parse_opts.decode_opt && !parse_opts.encode_opt)
     {
         //decode
-        fprintf(stderr, "TODO: %s\n", "decode");
+
+        if(parse_opts.json_file_opt)
+        {
+            json_file = open_option_file(parse_opts.json_file_path, "w", long_opts, (int)'j');
+        }
+        else
+        {
+            json_file = stdout;
+        }
+
+        if(parse_opts.bej_file_opt)
+        {
+            bej_file = open_option_file(parse_opts.json_file_path, "rb", long_opts, (int)'b');
+        }
+        else
+        {
+            bej_file = stdin;
+        }
+
+        if(parse_opts.pdrmap_file_opt)
+        {
+            pdr_map_file = open_option_file(parse_opts.json_file_path, "r", long_opts, (int)'p');
+        }
+
+
+        //TODO: decode
     }
     else
     {
+        // if both or neither operation flags is set - print usage
         print_usage_info(opt_usage);
+        return EXIT_FAILURE;
     }
+
+    fclose(annotation_dict_file);
+    fclose(schema_dict_file);
+    fclose(json_file);
+    fclose(bej_file);
+    fclose(pdr_map_file);
 
     return EXIT_SUCCESS;
 }
