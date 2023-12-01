@@ -5,5 +5,7 @@ set(C_STANDARD_REQUIRED C99)
 
 add_executable(${PROJECT_NAME}
     "src/main.c"
-    "src/bejparse_options.c" "src/bejparse_options.h"
+    "src/cmd_options.c" "src/cmd_options.h"
+    "src/decode.c" "src/decode.h"
+    "src/utils.c" "src/utils.h"
 )

@@ -7,7 +7,7 @@
 #include <getopt.h>
 
 
-typedef struct bej_parse_options
+typedef struct bej_cmd_options
 {
     bool help_opt;
     bool quiet_opt;
@@ -26,7 +26,7 @@ typedef struct bej_parse_options
     char *json_file_path;
     char *bej_file_path;
 }
-bejparse_options;
+bej_cmd_options;
 
 typedef struct option long_option;
 
@@ -36,7 +36,7 @@ bool set_opts(
     char* const argv[],
     const long_option* long_opts,
     const char* short_opts,
-    bejparse_options* parse_opts
+    bej_cmd_options* parse_opts
 );
 
 int get_long_opt(const long_option* long_opts, const int short_code);

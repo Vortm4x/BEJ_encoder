@@ -1,4 +1,4 @@
-#include "bejparse_options.h"
+#include "cmd_options.h"
 
 
 bool set_opts(
@@ -6,7 +6,7 @@ bool set_opts(
     char* const argv[],
     const long_option* long_opts,
     const char* short_opts,
-    bejparse_options* parse_opts
+    bej_cmd_options* parse_opts
 )
 {
     opterr = 1;

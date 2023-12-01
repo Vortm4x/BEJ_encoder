@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "bejparse_options.h"
-
+#include "cmd_options.h"
+#include "decode.h"
 
 int main(int argc, char* argv[])
 {
@@ -53,8 +53,8 @@ int main(int argc, char* argv[])
     };
 
     // retreve all options
-    bejparse_options parse_opts;
-    memset(&parse_opts, 0, sizeof(bejparse_options));
+    bej_cmd_options parse_opts;
+    memset(&parse_opts, 0, sizeof(bej_cmd_options));
     if(!set_opts(argc, argv, long_opts, short_opts, &parse_opts))
     {
         print_usage_info(opt_usage);
@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
         if(parse_opts.bej_file_opt)
         {
-            bej_file = open_option_file(parse_opts.json_file_path, "wb", long_opts, (int)'b');
+            bej_file = open_option_file(parse_opts.bej_file_path, "wb", long_opts, (int)'b');
         }
         else
         {
@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
 
         if(parse_opts.pdrmap_file_opt)
         {
-            pdr_map_file = open_option_file(parse_opts.json_file_path, "w", long_opts, (int)'p');
+            pdr_map_file = open_option_file(parse_opts.pdrmap_file_path, "w", long_opts, (int)'p');
         }
 
         //TODO: encode
@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
 
         if(parse_opts.bej_file_opt)
         {
-            bej_file = open_option_file(parse_opts.json_file_path, "rb", long_opts, (int)'b');
+            bej_file = open_option_file(parse_opts.bej_file_path, "rb", long_opts, (int)'b');
         }
         else
         {
@@ -155,11 +155,17 @@ int main(int argc, char* argv[])
 
         if(parse_opts.pdrmap_file_opt)
         {
-            pdr_map_file = open_option_file(parse_opts.json_file_path, "r", long_opts, (int)'p');
+            pdr_map_file = open_option_file(parse_opts.pdrmap_file_path, "r", long_opts, (int)'p');
         }
 
 
-        //TODO: decode
+        bej_decode(
+            json_file,
+            bej_file,
+            schema_dict_file,
+            annotation_dict_file,
+            pdr_map_file
+        );
     }
     else
     {
@@ -167,6 +173,7 @@ int main(int argc, char* argv[])
         print_usage_info(opt_usage);
         return EXIT_FAILURE;
     }
+
 
     fclose(annotation_dict_file);
     fclose(schema_dict_file);
