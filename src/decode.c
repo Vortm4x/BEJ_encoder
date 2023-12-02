@@ -50,7 +50,7 @@ void bej_unpack_nnint(uint64_t* val, FILE* stream)
     uint8_t length = 0;
     fread(&length, sizeof(uint8_t), 1, stream);
 
-    uint8_t data = 0;;
+    uint8_t data = 0;
     *val = 0;
 
     for(uint8_t i = 0; i < length; ++i)
@@ -144,8 +144,7 @@ void bej_decode_name(
     uint8_t entries_selector
 )
 {
-    if (tuple_sfl->sequence.dict_selector == entries_selector
-     && tuple_sfl->format.ro_and_tla == 0)
+    if (tuple_sfl->sequence.dict_selector == entries_selector && tuple_sfl->format.ro_and_tla == 0)
     {
         if(entries[tuple_sfl->sequence.seq_num].header->name_size > 0)
         {
@@ -250,7 +249,7 @@ bool bej_decode_stream(
             }
             case BEJ_FORMAT_STRING:
             {
-                char* val = malloc(tuple_sfl.length);
+                char* val = calloc(tuple_sfl.length, sizeof(char));
 
                 bej_unpack_string(tuple_sfl.length, val, bej_file);
 
@@ -351,7 +350,7 @@ bool bej_decode_stream(
                     );
                 }
 
-                fprintf(json_file, "\"%s\"", "NO_PDR_MAP_FILE");
+                fprintf(json_file, "\"\"");
 
                 break;
             }
@@ -539,36 +538,27 @@ bool bej_decode(
     assert(bej_header.flags == 0);
 
     assert(bej_header.schema_class == BEJ_SCHEMA_CLASS_MAJOR
-        || bej_header.schema_class == BEJ_SCHEMA_CLASS_EVENT
-        || bej_header.schema_class == BEJ_SCHEMA_CLASS_ERROR);
+        || bej_header.schema_class == BEJ_SCHEMA_CLASS_EVENT);
 
 
     bool success = true;
 
-    if(bej_header.schema_class == BEJ_SCHEMA_CLASS_MAJOR
-    || bej_header.schema_class == BEJ_SCHEMA_CLASS_EVENT)
-    {
-        // Major schema class or Event
-        fseeko(schema_dict_file, sizeof(bej_dict_header), SEEK_SET);
 
-        bej_dict_entry entry;
+    // Major schema class or Event
+    fseeko(schema_dict_file, sizeof(bej_dict_header), SEEK_SET);
 
-        read_dict_entry(&entry, schema_dict_file);
+    bej_dict_entry entry;
 
-        success = bej_decode_stream(
-            json_file, bej_file, schema_dict_file, annotation_dict_file,
-            &entry, 1,
-            BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA, 1, false, false
-        );
+    read_dict_entry(&entry, schema_dict_file);
 
-        free_dict_entry(&entry);
-    }
-    else
-    {
+    success = bej_decode_stream(
+        json_file, bej_file, schema_dict_file, annotation_dict_file,
+        &entry, 1,
+        BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA, 1, false, false
+    );
 
+    free_dict_entry(&entry);
 
-        // Error schema class
-    }
 
     return success;
 }

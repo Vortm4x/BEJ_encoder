@@ -177,9 +177,21 @@ int main(int argc, char* argv[])
 
     fclose(annotation_dict_file);
     fclose(schema_dict_file);
-    fclose(json_file);
-    fclose(bej_file);
-    fclose(pdr_map_file);
+
+    if(parse_opts.json_file_opt)
+    {
+        fclose(json_file);
+    }
+
+    if(parse_opts.bej_file_opt)
+    {
+        fclose(bej_file);
+    }
+
+    if(parse_opts.pdrmap_file_opt)
+    {
+        fclose(pdr_map_file);
+    }
 
     return EXIT_SUCCESS;
 }

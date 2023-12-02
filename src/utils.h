@@ -39,10 +39,30 @@
 #define BEJ_SCHEMA_CLASS_ERROR                      0x04
 
 
+typedef struct __attribute__((packed)) bej_file_header
+{
+    uint32_t version;
+    uint16_t flags;
+    uint8_t schema_class;
+}
+bej_file_header;
+
+
+typedef struct __attribute__((packed)) bej_dict_header
+{
+    uint8_t version;
+    uint8_t flags;
+    uint16_t entry_count;
+    uint32_t schema_version;
+    uint32_t dict_size;
+}
+bej_dict_header;
+
+
 typedef struct bej_tuple_s
 {
-    uint64_t seq_num        : 63;
     uint8_t dict_selector   :  1;
+    uint64_t seq_num        : 63;
 }
 bej_tuple_s;
 
@@ -80,15 +100,6 @@ typedef struct bej_real
 bej_real;
 
 
-typedef struct __attribute__((packed)) bej_file_header
-{
-    uint32_t version;
-    uint16_t flags;
-    uint8_t schema_class;
-}
-bej_file_header;
-
-
 typedef struct __attribute__((packed)) bej_dict_entry_header
 {
     bej_tuple_f format;
@@ -108,16 +119,6 @@ typedef struct bej_dict_entry
 }
 bej_dict_entry;
 
-
-typedef struct __attribute__((packed)) bej_dict_header
-{
-    uint8_t version;
-    uint8_t flags;
-    uint16_t entry_count;
-    uint32_t schema_version;
-    uint32_t dict_size;
-}
-bej_dict_header;
 
 off_t get_stream_size(FILE* stream);
 

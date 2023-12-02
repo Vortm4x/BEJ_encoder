@@ -9,3 +9,7 @@ add_executable(${PROJECT_NAME}
     "src/decode.c" "src/decode.h"
     "src/utils.c" "src/utils.h"
 )
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+    -Werror
+)
