@@ -543,12 +543,8 @@ bool bej_decode(
 
     bool success = true;
 
-
-    // Major schema class or Event
-    fseeko(schema_dict_file, sizeof(bej_dict_header), SEEK_SET);
-
     bej_dict_entry entry;
-
+    fseeko(schema_dict_file, sizeof(bej_dict_header), SEEK_SET);
     read_dict_entry(&entry, schema_dict_file);
 
     success = bej_decode_stream(

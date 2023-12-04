@@ -3,7 +3,9 @@
 #include <string.h>
 
 #include "cmd_options.h"
+#include "encode.h"
 #include "decode.h"
+
 
 int main(int argc, char* argv[])
 {
@@ -127,7 +129,14 @@ int main(int argc, char* argv[])
             pdr_map_file = open_option_file(parse_opts.pdrmap_file_path, "w", long_opts, (int)'p');
         }
 
-        //TODO: encode
+
+        bej_encode(
+            json_file,
+            bej_file,
+            schema_dict_file,
+            annotation_dict_file,
+            pdr_map_file
+        );
 
     }
     else

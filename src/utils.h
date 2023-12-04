@@ -38,6 +38,8 @@
 #define BEJ_SCHEMA_CLASS_EVENT                      0x01
 #define BEJ_SCHEMA_CLASS_ERROR                      0x04
 
+#define BEJ_INAVALID_SEQUENCE_NUMBER                UINT64_MAX
+
 
 typedef struct __attribute__((packed)) bej_file_header
 {
@@ -69,11 +71,12 @@ bej_tuple_s;
 
 typedef struct bej_tuple_f
 {
-    uint8_t bej_type       : 4;
-    uint8_t reserved       : 1;
-    uint8_t nullable       : 1;
-    uint8_t ro_and_tla     : 1;
     uint8_t defer_bind     : 1;
+    uint8_t ro_and_tla     : 1;
+    uint8_t nullable       : 1;
+    uint8_t reserved       : 1;
+
+    uint8_t bej_type       : 4;
 }
 bej_tuple_f;
 
@@ -145,6 +148,8 @@ void free_dict_entry(bej_dict_entry* entry);
 
 void read_dict_entry_children(bej_dict_entry** children, bej_dict_entry_header* entry_header, FILE* stream);
 void free_dict_entry_children(bej_dict_entry** children, uint16_t child_count);
+
+
 
 
 #endif // DICT_FILE_H
