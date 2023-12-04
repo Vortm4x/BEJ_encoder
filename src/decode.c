@@ -51,7 +51,7 @@ void bej_unpack_nnint(uint64_t* val, FILE* stream)
     fread(&length, sizeof(uint8_t), 1, stream);
 
     uint8_t data = 0;
-    *val = 0;
+    memset(val, 0, sizeof(uint64_t));
 
     for(uint8_t i = 0; i < length; ++i)
     {
@@ -60,33 +60,51 @@ void bej_unpack_nnint(uint64_t* val, FILE* stream)
     }
 }
 
-void bej_unpack_tuple_s(bej_tuple_s* tuple_s, FILE* stream)
-{
-    uint64_t tuple_s_num;
-    bej_unpack_nnint(&tuple_s_num, stream);
-
-    tuple_s->dict_selector = (tuple_s_num & 0b1);
-    tuple_s->seq_num = (tuple_s_num >> 1);
-}
-
-void bej_unpack_tuple_f(bej_tuple_f* tuple_f, FILE* stream)
-{
-    uint8_t tuple_f_num;
-    fread(&tuple_f_num, sizeof(uint8_t), 1, stream);
-
-    tuple_f->bej_type = tuple_f_num >> 4;
-
-    tuple_f->reserved   = (tuple_f_num & 0xF) >> 3;
-    tuple_f->nullable   = (tuple_f_num & 0xF) >> 2;
-    tuple_f->ro_and_tla = (tuple_f_num & 0xF) >> 1;
-    tuple_f->defer_bind = (tuple_f_num & 0xF) >> 0;
-}
-
 void bej_unpack_sfl(bej_tuple_sfl* tuple_sfl, FILE* stream)
 {
-    bej_unpack_tuple_s(&tuple_sfl->sequence, stream);
-    bej_unpack_tuple_f(&tuple_sfl->format, stream);
+    //bej_unpack_tuple_s(&tuple_sfl->sequence, stream);
+    bej_unpack_nnint((uint64_t*)&tuple_sfl->sequence, stream);
+    fread(&tuple_sfl->format, sizeof(bej_tuple_f), 1, stream);
+    //bej_unpack_tuple_f(&tuple_sfl->format, stream);
     bej_unpack_nnint((uint64_t*)&tuple_sfl->length, stream);
+}
+
+FILE* bej_get_subset_entry_header(
+    FILE* schema_dict_file,
+    FILE* annotation_dict_file,
+    bej_tuple_sfl* tuple_sfl,
+    bej_dict_entry* entries,
+    uint8_t entries_selector,
+    bej_dict_entry_header* entry_header
+)
+{
+    FILE* current_dict;
+
+    if(tuple_sfl->sequence.dict_selector == BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA)
+    {
+        current_dict = schema_dict_file;
+    }
+    else
+    {
+        current_dict = annotation_dict_file;
+    }
+
+    if (tuple_sfl->sequence.dict_selector != entries_selector || tuple_sfl->format.ro_and_tla == 1)
+    {
+        fseeko(current_dict, sizeof(bej_dict_header), SEEK_SET);
+        fread(&entry_header, sizeof(bej_dict_entry_header), 1, current_dict);
+
+        fseeko(current_dict, entry_header->offset, SEEK_SET);
+        fseeko(current_dict, tuple_sfl->sequence.seq_num * sizeof(bej_dict_entry_header), SEEK_CUR);
+
+        fread(&entry_header, sizeof(bej_dict_entry_header), 1, current_dict);
+    }
+    else
+    {
+        *entry_header = *entries[tuple_sfl->sequence.seq_num].header;
+    }
+
+    return current_dict;
 }
 
 void bej_decode_enum(
@@ -216,7 +234,7 @@ bool bej_decode_stream(
                 bej_dict_entry_header entry_header;
                 bej_dict_entry* children;
 
-                FILE* current_dict = get_collection_entry_header(
+                FILE* current_dict = bej_get_subset_entry_header(
                     schema_dict_file, annotation_dict_file,
                     &tuple_sfl, entries, entries_selector,
                     &entry_header
@@ -297,14 +315,30 @@ bool bej_decode_stream(
                     );
                 }
 
-                fprintf(
-                    json_file,
-                    "%ld.%0*d%lue%+ld",
-                    value.whole,
-                    (int)value.lead_zeros, 0,
-                    value.fract,
-                    value.exponent
-                );
+                if(value.fract > 0)
+                {
+                    fprintf(
+                        json_file,
+                        "%ld.%0*d%lue%+ld",
+                        value.whole,
+                        (int)value.lead_zeros, 0,
+                        value.fract,
+                        value.exponent
+                    );
+                }
+                else
+                {
+                    fprintf(
+                        json_file,
+                        "%ld.%lue%+ld",
+                        value.whole,
+                        value.fract,
+                        value.exponent
+                    );
+                }
+
+
+
 
                 break;
             }
@@ -375,7 +409,7 @@ bool bej_decode_stream(
                 bej_dict_entry_header entry_header;
                 bej_dict_entry entry;
 
-                FILE* current_dict = get_collection_entry_header(
+                FILE* current_dict = bej_get_subset_entry_header(
                     schema_dict_file, annotation_dict_file,
                     &tuple_sfl, entries, entries_selector,
                     &entry_header
@@ -430,7 +464,7 @@ bool bej_decode_stream(
                 bej_dict_entry_header entry_header;
                 bej_dict_entry* children;
 
-                FILE* current_dict = get_collection_entry_header(
+                FILE* current_dict = bej_get_subset_entry_header(
                     schema_dict_file, annotation_dict_file,
                     &tuple_sfl, entries, entries_selector,
                     &entry_header
@@ -473,7 +507,12 @@ bool bej_decode_stream(
             case BEJ_FORMAT_PROPERTY_ANNOTATION:
             {
                 bej_tuple_s property_sequence;
-                bej_unpack_tuple_s(&property_sequence, bej_file);
+                bej_unpack_nnint((uint64_t*)&property_sequence, bej_file);
+
+                if(entries_count <= property_sequence.seq_num)
+                {
+                    return false;
+                }
 
                 fseeko(bej_file, stream_pos, SEEK_SET);
 

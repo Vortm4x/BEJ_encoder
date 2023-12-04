@@ -125,24 +125,6 @@ bej_dict_entry;
 
 off_t get_stream_size(FILE* stream);
 
-void get_dict_entry_by_sequence(
-    FILE* schema_dict_file,
-    FILE* annotation_dict_file,
-    bej_tuple_sfl* tuple_sfl,
-    bej_dict_entry* entries,
-    uint16_t entries_count,
-    uint8_t entries_selector
-);
-
-FILE* get_collection_entry_header(
-    FILE* schema_dict_file,
-    FILE* annotation_dict_file,
-    bej_tuple_sfl* tuple_sfl,
-    bej_dict_entry* entries,
-    uint8_t entries_selector,
-    bej_dict_entry_header* entry_header
-);
-
 void read_dict_entry(bej_dict_entry* entry, FILE* stream);
 void free_dict_entry(bej_dict_entry* entry);
 

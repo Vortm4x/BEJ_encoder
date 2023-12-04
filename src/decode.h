@@ -16,6 +16,15 @@ void bej_unpack_boolean(const bej_tuple_l length, bool* val, FILE* stream);
 void bej_unpack_real(const bej_tuple_l length, bej_real* val, FILE* stream);
 void bej_unpack_integer(const bej_tuple_l length, int64_t* val, FILE* stream);
 
+FILE* bej_get_subset_entry_header(
+    FILE* schema_dict_file,
+    FILE* annotation_dict_file,
+    bej_tuple_sfl* tuple_sfl,
+    bej_dict_entry* entries,
+    uint8_t entries_selector,
+    bej_dict_entry_header* entry_header
+);
+
 void bej_decode_enum(
     FILE* json_file,
     FILE* dict_file,
