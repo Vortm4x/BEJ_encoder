@@ -1,0 +1,8 @@
+DOXYFILE_ENCODING       = UTF-8
+OUTPUT_LANGUAGE         = English
+PROJECT_NAME            = "BEJ parser"
+PROJECT_BRIEF           = "Binary encoded JSON encoder/decoder"
+OUTPUT_DIRECTORY        = ./docs
+INPUT                   = ./src
+GENERATE_LATEX          = NO
+GENERATE_HTML           = YES

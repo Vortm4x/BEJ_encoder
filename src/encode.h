@@ -1,3 +1,12 @@
+/**
+ *
+ *  @file
+ *  @brief Functions for encoding process
+ *  (converting JSON file to BEJ file)
+ *
+ **/
+
+
 #ifndef ENCODE_H
 #define ENCODE_H
 
@@ -7,20 +16,29 @@
 #include "utils.h"
 
 
-#define BEJ_SET_BEGIN '{'
-#define BEJ_SET_END '}'
-#define BEJ_ARRAY_BEGIN '['
-#define BEJ_ARRAY_END ']'
-#define BEJ_STRING_QUOTE '\"'
-#define BEJ_PROP_VALUE_SEPARATOR ':'
-#define BEJ_ELEMENT_SEPARATOR ','
-#define BEJ_ANOTATION_CHARACTER '@'
-#define BEJ_REAL_PERIOD '.'
-#define BEJ_REAL_EXPONENT 'e'
+#define BEJ_CHARACTER_SET_BEGIN                   '{'
+#define BEJ_CHARACTER_SET_END                     '}'
+#define BEJ_CHARACTER_ARRAY_BEGIN                 '['
+#define BEJ_CHARACTER_ARRAY_END                   ']'
+#define BEJ_CHARACTER_STRING_QUOTE                '\"'
+#define BEJ_CHARACTER_PROP_VALUE_SEPARATOR        ':'
+#define BEJ_CHARACTER_ELEMENT_SEPARATOR           ','
+#define BEJ_CHARACTER_ANOTATION_CHARACTER         '@'
+#define BEJ_CHARACTER_REAL_PERIOD                 '.'
+#define BEJ_CHARACTER_REAL_EXPONENT               'e'
 
 
-
+/************************************************
+ *
+ *  @param val - unsigned 64bit number, that
+ *  be packed
+ *
+ ***********************************************/
 uint64_t bej_nnint_length(const uint64_t val);
+
+
+
+
 uint64_t bej_integer_length(const int64_t val);
 
 void bej_pack_nnint(const uint64_t val, const uint64_t length, FILE* stream);
@@ -43,13 +61,11 @@ bool bej_is_payload_anotation(char* prop_name);
 uint64_t bej_get_entry_by_name(
     const char* prop_name,
     bej_dict_entry* entries,
-    uint16_t entries_count
-);
+    uint16_t entries_count);
 
 bool bej_get_annotation_name(
     const char* prop_name,
-    regmatch_t* annotation_prop_match
-);
+    regmatch_t* annotation_prop_match);
 
 bool bej_get_annotation_parts(
     const char* prop_name,

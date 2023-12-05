@@ -14,7 +14,10 @@ off_t get_stream_size(FILE* stream)
 }
 
 
-void read_dict_entry(bej_dict_entry* entry, FILE* stream)
+void read_dict_entry(
+    bej_dict_entry* entry,
+    FILE* stream
+)
 {
     entry->header = malloc(sizeof(bej_dict_entry_header));
     fread(entry->header, sizeof(bej_dict_entry_header), 1, stream);
@@ -39,7 +42,11 @@ void free_dict_entry(bej_dict_entry* entry)
 }
 
 
-void read_dict_entry_children(bej_dict_entry** children, bej_dict_entry_header* entry_header, FILE* stream)
+void read_dict_entry_children(
+    bej_dict_entry** children,
+    const bej_dict_entry_header* entry_header,
+    FILE* stream
+)
 {
     *children = calloc(entry_header->child_count, sizeof(bej_dict_entry));
 
@@ -49,7 +56,10 @@ void read_dict_entry_children(bej_dict_entry** children, bej_dict_entry_header* 
     }
 }
 
-void free_dict_entry_children(bej_dict_entry** children, uint16_t child_count)
+void free_dict_entry_children(
+    bej_dict_entry** children,
+    const uint16_t child_count
+)
 {
     for(int i = 0; i < child_count; ++i)
     {

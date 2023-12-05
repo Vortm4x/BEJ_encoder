@@ -1,3 +1,12 @@
+/**
+ *
+ *  @file
+ *  @brief Functions for decocing process
+ *  (converting BEJ file to JSON file)
+ *
+ **/
+
+
 #ifndef DECODE_H
 #define DECODE_H
 

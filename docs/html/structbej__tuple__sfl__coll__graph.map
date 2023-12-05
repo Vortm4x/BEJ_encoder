@@ -1,0 +1,5 @@
+<map id="bej_tuple_sfl" name="bej_tuple_sfl">
+<area shape="rect" id="node1" title="Structure that unites F, S and L tuples. Header of BEJ&#45;encoded values." alt="" coords="61,95,165,121"/>
+<area shape="rect" id="node2" href="$structbej__tuple__f.html" title="Structure that represents bejTupleF type." alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node3" href="$structbej__tuple__s.html" title="Structure that represents bejTupleS type." alt="" coords="125,5,221,32"/>
+</map>

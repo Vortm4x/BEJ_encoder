@@ -4,7 +4,7 @@
 bool set_opts(
     int argc,
     char* const argv[],
-    const long_option* long_opts,
+    const bej_long_option* long_opts,
     const char* short_opts,
     bej_cmd_options* parse_opts
 )
@@ -112,7 +112,10 @@ bool set_opts(
     return true;
 }
 
-int get_long_opt(const long_option* long_opts, const int short_code)
+int get_long_opt(
+    const bej_long_option* long_opts,
+    const int short_code
+)
 {
     int pos = -1;
 
@@ -128,7 +131,11 @@ int get_long_opt(const long_option* long_opts, const int short_code)
     return pos;
 }
 
-void print_option_hint(const long_option* long_opts, const int option_code, const char* msg)
+void print_option_hint(
+    const bej_long_option* long_opts,
+    const int option_code,
+    const char* msg
+)
 {
     int pos = get_long_opt(long_opts, option_code);
 
@@ -155,7 +162,7 @@ void print_usage_info(const char* opt_usage[])
     fprintf(stderr, "\n");
 }
 
-void print_options_info(const long_option* long_opts, const char* opt_descs[])
+void print_options_info(const bej_long_option* long_opts, const char* opt_descs[])
 {
     fprintf(stderr, "options:");
 
@@ -173,7 +180,7 @@ void print_options_info(const long_option* long_opts, const char* opt_descs[])
 FILE* open_option_file(
     const char* path,
     const char* mode,
-    const long_option* long_opts,
+    const bej_long_option* long_opts,
     const int option_code)
 {
     FILE* file = fopen(path, mode);

@@ -13,17 +13,17 @@ int main(int argc, char* argv[])
     const char* short_opts = "hqveds:a:p:j:b:";
 
     // command long options (long value is the same as short value)
-    const long_option long_opts[] = {
-        { "help",                   no_argument,        NULL, (int)'h' },
-        { "quiet",                  no_argument,        NULL, (int)'q' },
-        { "verbose",                no_argument,        NULL, (int)'v' },
-        { "encode",                 no_argument,        NULL, (int)'e' },
-        { "decode",                 no_argument,        NULL, (int)'d' },
-        { "schema-dict",            required_argument,  NULL, (int)'s' },
-        { "annotation-dict",        required_argument,  NULL, (int)'a' },
-        { "pdrmap-file",            required_argument,  NULL, (int)'p' },
-        { "json-file",              required_argument,  NULL, (int)'j' },
-        { "bej-file",               required_argument,  NULL, (int)'b' },
+    const bej_long_option long_opts[] = {
+        { "help",               no_argument,        NULL, (int)'h' },
+        { "quiet",              no_argument,        NULL, (int)'q' },
+        { "verbose",            no_argument,        NULL, (int)'v' },
+        { "encode",             no_argument,        NULL, (int)'e' },
+        { "decode",             no_argument,        NULL, (int)'d' },
+        { "schema-dict",        required_argument,  NULL, (int)'s' },
+        { "annotation-dict",    required_argument,  NULL, (int)'a' },
+        { "pdrmap-file",        required_argument,  NULL, (int)'p' },
+        { "json-file",          required_argument,  NULL, (int)'j' },
+        { "bej-file",           required_argument,  NULL, (int)'b' },
         { NULL, 0, NULL, 0 }
     };
 

@@ -1,0 +1,5 @@
+<map id="src/utils.h" name="src/utils.h">
+<area shape="rect" id="node1" title="Comman utility functions for decoding and encoding." alt="" coords="79,5,164,32"/>
+<area shape="rect" id="node2" href="$decode_8h.html" title="Functions for decocing process (converting BEJ file to JSON file)" alt="" coords="5,80,109,107"/>
+<area shape="rect" id="node3" href="$encode_8h.html" title="Functions for encoding process (converting JSON file to BEJ file)" alt="" coords="133,80,237,107"/>
+</map>

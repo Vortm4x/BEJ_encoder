@@ -1,5 +1,6 @@
 #include "encode.h"
 
+
 uint64_t bej_nnint_length(const uint64_t val)
 {
     uint64_t length = sizeof(uint64_t);
@@ -102,7 +103,7 @@ char* bej_read_prop_name(FILE* stream)
 {
     char* str_buffer = bej_read_string(stream);
 
-    if(bej_read_delim(stream) != BEJ_PROP_VALUE_SEPARATOR)
+    if(bej_read_delim(stream) != BEJ_CHARACTER_PROP_VALUE_SEPARATOR)
     {
         free(str_buffer);
         return NULL;
@@ -115,14 +116,14 @@ char* bej_read_string(FILE* stream)
 {
     char* str_buffer = NULL;
 
-    if(bej_read_delim(stream) != BEJ_STRING_QUOTE)
+    if(bej_read_delim(stream) != BEJ_CHARACTER_STRING_QUOTE)
     {
         return NULL;
     }
 
     fscanf(stream, "%m[^\"]", &str_buffer);
 
-    if(bej_read_delim(stream) != BEJ_STRING_QUOTE)
+    if(bej_read_delim(stream) != BEJ_CHARACTER_STRING_QUOTE)
     {
         free(str_buffer);
         return NULL;
@@ -176,7 +177,7 @@ bool bej_is_payload_anotation(char* prop_name)
         return false;
     }
 
-    if(strchr(prop_name, BEJ_ANOTATION_CHARACTER) == NULL)
+    if(strchr(prop_name, BEJ_CHARACTER_ANOTATION_CHARACTER) == NULL)
     {
         return false;
     }
@@ -305,7 +306,7 @@ bool bej_encode_sflv(
         {
             char collection_sep = bej_read_delim(json_file);
 
-            if(collection_sep != BEJ_SET_BEGIN)
+            if(collection_sep != BEJ_CHARACTER_SET_BEGIN)
             {
                 return false;
             }
@@ -313,7 +314,7 @@ bool bej_encode_sflv(
             FILE* nested_stream = tmpfile();
             bej_tuple_l count = 0;
 
-            if(bej_collection_is_not_empty(BEJ_SET_END, json_file))
+            if(bej_collection_is_not_empty(BEJ_CHARACTER_SET_END, json_file))
             {
                 bej_dict_entry* child_entries = NULL;
                 FILE* current_dict;
@@ -342,9 +343,9 @@ bool bej_encode_sflv(
                     ++count;
                     collection_sep = bej_read_delim(json_file);
                 }
-                while(collection_sep == BEJ_ELEMENT_SEPARATOR && success);
+                while(collection_sep == BEJ_CHARACTER_ELEMENT_SEPARATOR && success);
 
-                if(collection_sep != BEJ_SET_END || !success)
+                if(collection_sep != BEJ_CHARACTER_SET_END || !success)
                 {
                     fclose(nested_stream);
                     free(child_entries);
@@ -409,7 +410,7 @@ bool bej_encode_sflv(
                 return false;
             }
 
-            if(fgetc(json_file) != BEJ_REAL_PERIOD)
+            if(fgetc(json_file) != BEJ_CHARACTER_REAL_PERIOD)
             {
                 return false;
             }
@@ -438,7 +439,7 @@ bool bej_encode_sflv(
 
             off_t curr_pos = ftello(json_file);
 
-            if(tolower(fgetc(json_file)) == BEJ_REAL_EXPONENT)
+            if(tolower(fgetc(json_file)) == BEJ_CHARACTER_REAL_EXPONENT)
             {
                 if(fscanf(json_file, "%ld", &val.exponent) != 1)
                 {
@@ -566,7 +567,7 @@ bool bej_encode_sflv(
         {
             char collection_sep = bej_read_delim(json_file);
 
-            if(collection_sep != BEJ_ARRAY_BEGIN)
+            if(collection_sep != BEJ_CHARACTER_ARRAY_BEGIN)
             {
                 return false;
             }
@@ -574,7 +575,7 @@ bool bej_encode_sflv(
             FILE* nested_stream = tmpfile();
             bej_tuple_l count = 0;
 
-            if(bej_collection_is_not_empty(BEJ_ARRAY_END, json_file))
+            if(bej_collection_is_not_empty(BEJ_CHARACTER_ARRAY_END, json_file))
             {
                 bej_dict_entry_header child_entry_header;
                 FILE* current_dict;
@@ -612,9 +613,9 @@ bool bej_encode_sflv(
                     ++sequence.seq_num;
                     collection_sep = bej_read_delim(json_file);
                 }
-                while(collection_sep == BEJ_ELEMENT_SEPARATOR && success);
+                while(collection_sep == BEJ_CHARACTER_ELEMENT_SEPARATOR && success);
 
-                if(collection_sep != BEJ_ARRAY_END || !success)
+                if(collection_sep != BEJ_CHARACTER_ARRAY_END || !success)
                 {
                     fclose(nested_stream);
                     return false;

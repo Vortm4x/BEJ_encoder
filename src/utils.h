@@ -1,3 +1,11 @@
+/**
+ *
+ *  @file
+ *  @brief Comman utility functions for decoding and encoding
+ *
+ **/
+
+
 #ifndef DICT_FILE_H
 #define DICT_FILE_H
 
@@ -23,11 +31,6 @@
 #define BEJ_FORMAT_RESOURCE_LINK                    0x0E
 #define BEJ_FORMAT_RESOURCE_LINK_EXPANSION          0x0F
 
-#define BEJ_FLAG_DEFERRED                           (1 << 0)
-#define BEJ_FLAG_READONLY                           (1 << 1)
-#define BEJ_FLAG_NULLABLE                           (1 << 2)
-#define BEJ_FLAG_NESTED_TOP_LEVEL_ANNOTATION        (1 << 1)
-
 #define BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA        0b0
 #define BEJ_DICTIONARY_SELECTOR_ANNOTATION          0b1
 
@@ -41,6 +44,24 @@
 #define BEJ_INAVALID_SEQUENCE_NUMBER                UINT64_MAX
 
 
+/**
+ *
+ *  @struct bej_file_header
+ *  @brief Structure that represents BEJ file meta data
+ *
+ *  @var bej_file_header::version
+ *  @brief BEJ file version
+ *
+ *  @var bej_file_header::flags
+ *  @brief BEJ file flags (should be 0)
+ *
+ *  @var bej_file_header::schema_class
+ *  @brief BEJ file schema class entry
+ *
+ *  @typedef bej_file_header
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct __attribute__((packed)) bej_file_header
 {
     uint32_t version;
@@ -49,7 +70,30 @@ typedef struct __attribute__((packed)) bej_file_header
 }
 bej_file_header;
 
+/**
+ *
+ *  @struct bej_dict_header
+ *  @brief Structure that represents Dictionary file meta
+ *
+ *  @var bej_dict_header::version
+ *  @brief Dictionary version
+ *
+ *  @var bej_dict_header::flags
+ *  @brief Dictionary flags
+ *
+ *  @var bej_dict_header::entry_count
+ *  @brief Amount of entries in dictionary
+ *
+ *  @var bej_dict_header::schema_version
+ *  @brief Dictionary schema version
 
+ *  @var bej_dict_header::dict_size
+ *  @brief Dictionary size
+
+ *  @typedef bej_dict_header
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct __attribute__((packed)) bej_dict_header
 {
     uint8_t version;
@@ -60,7 +104,21 @@ typedef struct __attribute__((packed)) bej_dict_header
 }
 bej_dict_header;
 
-
+/**
+ *
+ *  @struct bej_tuple_s
+ *  @brief Structure that represents bejTupleS type
+ *
+ *  @var bej_tuple_s::dict_selector
+ *  @brief Dictionary selector (0 bit)
+ *
+ *  @var bej_tuple_s::seq_num
+ *  @brief Sequence number (1-n bits)
+ *
+ *  @typedef bej_tuple_s
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct bej_tuple_s
 {
     uint8_t dict_selector   :  1;
@@ -69,6 +127,31 @@ typedef struct bej_tuple_s
 bej_tuple_s;
 
 
+/**
+ *
+ *  @struct bej_tuple_f
+ *  @brief Structure that represents bejTupleF type
+ *
+ *  @var bej_tuple_f::defer_bind
+ *  @brief Deferred binding flag (0 bit)
+ *
+ *  @var bej_tuple_f::ro_and_tla
+ *  @brief Read only property (in Dictionary) and
+ *  top level annotation (in Schema) flag (1 bit)
+ *
+ *  @var bej_tuple_f::nullable
+ *  @brief Nullable property flag (2 bit)
+ *
+ *  @var bej_tuple_f::reserved
+ *  @brief Reserved flag (3 bit)
+ *
+ *  @var bej_tuple_f::bej_type
+ *  @brief Principal data type (4-7 bits)
+ *
+ *  @typedef bej_tuple_f
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct bej_tuple_f
 {
     uint8_t defer_bind     : 1;
@@ -81,9 +164,32 @@ typedef struct bej_tuple_f
 bej_tuple_f;
 
 
+/**
+ *  @typedef bej_tuple_l
+ *  @brief Represents bejTupleL type
+ **/
 typedef uint64_t bej_tuple_l;
 
 
+/**
+ *
+ *  @struct bej_tuple_sfl
+ *  @brief Structure that unites F, S and L tuples.
+ *  Header of BEJ-encoded values
+ *
+ *  @var bej_tuple_sfl::sequence
+ *  @brief Encoded value dictionary sequence
+ *
+ *  @var bej_tuple_sfl::format
+ *  @brief Encoded value flags and type
+ *
+ *  @var bej_tuple_sfl::length
+ *  @brief Encoded value length in bytes
+ *
+ *  @typedef bej_tuple_sfl
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct bej_tuple_sfl
 {
     bej_tuple_s sequence;
@@ -93,6 +199,28 @@ typedef struct bej_tuple_sfl
 bej_tuple_sfl;
 
 
+/**
+ *
+ *  @struct bej_real
+ *  @brief Structure that simplifies bejReal type processing.
+ *  Encoded floating point number data
+ *
+ *  @var bej_real::whole
+ *  @brief Whole part value
+ *
+ *  @var bej_real::lead_zeros
+ *  @brief Lead zeros count
+ *
+ *  @var bej_real::fract
+ *  @brief Fraction part value
+ *
+ *  @var bej_real::exponent
+ *  @brief Exponent part value
+ *
+ *  @typedef bej_real
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct bej_real
 {
     int64_t whole;
@@ -102,7 +230,33 @@ typedef struct bej_real
 }
 bej_real;
 
-
+/**
+ *
+ *  @struct bej_dict_entry_header
+ *  @brief Structure that represents dictionary entry (with name).
+ *
+ *  @var bej_dict_entry_header::format
+ *  @brief Entry format
+ *
+ *  @var bej_dict_entry_header::sequence
+ *  @brief Entry sequence (position in child entry array of its parent)
+ *
+ *  @var bej_dict_entry_header::offset
+ *  @brief Child entries offset
+ *
+ *  @var bej_dict_entry_header::child_count
+ *  @brief Child entries count
+ *
+ *  @var bej_dict_entry_header::name_size
+ *  @brief Entry name length
+ *
+ *  @var bej_dict_entry_header::name_ofset
+ *  @brief Entry name dictionary offset
+ *
+ *  @typedef bej_dict_entry_header
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct __attribute__((packed)) bej_dict_entry_header
 {
     bej_tuple_f format;
@@ -114,7 +268,21 @@ typedef struct __attribute__((packed)) bej_dict_entry_header
 }
 bej_dict_entry_header;
 
-
+/**
+ *
+ *  @struct bej_dict_entry
+ *  @brief Structure that represents dictionary entry (with name).
+ *
+ *  @var bej_dict_entry::header
+ *  @brief Entry info
+ *
+ *  @var bej_dict_entry::name
+ *  @brief Entry name
+ *
+ *  @typedef bej_dict_entry
+ *  @brief default struct typedef
+ *
+ **/
 typedef struct bej_dict_entry
 {
     bej_dict_entry_header* header;
@@ -123,15 +291,69 @@ typedef struct bej_dict_entry
 bej_dict_entry;
 
 
+/**
+ *
+ *  Gets size of stream in bytes
+ *
+ *  @param[in]  stream          File stream
+ *  @returns size of stream
+ *
+ **/
 off_t get_stream_size(FILE* stream);
 
-void read_dict_entry(bej_dict_entry* entry, FILE* stream);
+
+/**
+ *
+ *  Reads dictionary entry from file stream at current position
+ *
+ *  @param[out] entry          Dictionary entry address
+ *  @param[in]  stream         Dictionary entry stream
+ *
+ **/
+void read_dict_entry(
+    bej_dict_entry* entry,
+    FILE* stream
+);
+
+
+/**
+ *
+ *  Frees dictionary entry
+ *
+ *  @param[inout] entry     Dictionary entry
+ *
+ **/
 void free_dict_entry(bej_dict_entry* entry);
 
-void read_dict_entry_children(bej_dict_entry** children, bej_dict_entry_header* entry_header, FILE* stream);
-void free_dict_entry_children(bej_dict_entry** children, uint16_t child_count);
+
+/**
+ *
+ *  Reads all children of entry by its header
+ *
+ *  @param[out] children        Dictionary entries array pointer
+ *  @param[in]  entry_header    Header of parent entry
+ *  @param[in]  stream          Dictionary entry stream
+ *
+ **/
+void read_dict_entry_children(
+    bej_dict_entry** children,
+    const bej_dict_entry_header* entry_header,
+    FILE* stream
+);
 
 
+/**
+ *
+ *  Frees dictionary entry array
+ *
+ *  @param[inout] children     Dictionary entries array pointer
+ *  @param[in] child_count     Entries count
+ *
+ **/
+void free_dict_entry_children(
+    bej_dict_entry** children,
+    const uint16_t child_count
+);
 
 
 #endif // DICT_FILE_H
