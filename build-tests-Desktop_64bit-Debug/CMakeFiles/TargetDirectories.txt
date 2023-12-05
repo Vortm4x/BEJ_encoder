@@ -1,3 +1,0 @@
-/home/vortmax/BEJ_parser/BEJ_parser/build-tests-Desktop_64bit-Debug/CMakeFiles/BEJ_parser_tests.dir
-/home/vortmax/BEJ_parser/BEJ_parser/build-tests-Desktop_64bit-Debug/CMakeFiles/edit_cache.dir
-/home/vortmax/BEJ_parser/BEJ_parser/build-tests-Desktop_64bit-Debug/CMakeFiles/rebuild_cache.dir
