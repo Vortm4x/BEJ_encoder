@@ -3,15 +3,23 @@ cmake_minimum_required(VERSION 3.21)
 project(BEJ_parser LANGUAGES C)
 set(C_STANDARD_REQUIRED C99)
 
+set(EXE_TARGET_NAME         ${PROJECT_NAME})
+set(LIB_TARGET_NAME         ${PROJECT_NAME}_lib)
+set(TEST_TARGET_NAME        ${PROJECT_NAME}_tests)
 
-add_executable(${PROJECT_NAME}
-    "src/main.c"
-    "src/cmd_options.c" "src/cmd_options.h"
-    "src/decode.c" "src/decode.h"
-    "src/utils.c" "src/utils.h"
-    "src/encode.c" "src/encode.h"
+set(PROJECT_SOURCE_PATH "${CMAKE_CURRENT_LIST_DIR}/src")
+
+add_library(${LIB_TARGET_NAME} STATIC
+    "${PROJECT_SOURCE_PATH}/encode.c" "${PROJECT_SOURCE_PATH}/encode.h"
+    "${PROJECT_SOURCE_PATH}/decode.c" "${PROJECT_SOURCE_PATH}/decode.h"
+    "${PROJECT_SOURCE_PATH}/utils.c"  "${PROJECT_SOURCE_PATH}/utils.h"
 )
 
-target_compile_options(${PROJECT_NAME} PRIVATE
-    -Wall
+add_executable(${EXE_TARGET_NAME}
+    "${PROJECT_SOURCE_PATH}/cmd_options.c" "${PROJECT_SOURCE_PATH}/cmd_options.h"
+    "${PROJECT_SOURCE_PATH}/main.c"
 )
+
+target_link_libraries(${EXE_TARGET_NAME} PRIVATE ${LIB_TARGET_NAME})
+
+add_subdirectory(tests)
