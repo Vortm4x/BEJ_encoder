@@ -1,0 +1,18 @@
+{
+	"CapacityMiB" : 65536,
+	"DataWidthBits": 64,
+	"AllowedSpeedsMHz": [2400, 3200],
+	"ErrorCorrection": "NoECC",
+	"Description": "my custom description",
+	"Location": {
+		"Latitude": 1.000e+10,
+		"Longitude": 1.000e+10
+	},
+	"MemoryLocation": 
+	{
+		"Channel": 0,
+		"Slot": 0
+	},
+	"IsRankSpareEnabled":        null,
+	"IsSpareDeviceEnabled":false
+}
