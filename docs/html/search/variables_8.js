@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['name_102',['name',['../structbej__dict__entry.html#a58b894bc4c067f7a1b7c9ad8216a5342',1,'bej_dict_entry']]],
-  ['nullable_103',['nullable',['../structbej__tuple__f.html#a1b01dd69d3a7d6ca1b7da155909e3f7b',1,'bej_tuple_f']]]
+  ['lead_5fzeros_210',['lead_zeros',['../structbej__real.html#a784b08693d2d4bd304be6e17d69ff9e8',1,'bej_real']]],
+  ['length_211',['length',['../structbej__tuple__sfl.html#a454c8e37db1e092f9637440ca6015902',1,'bej_tuple_sfl']]]
 ];

@@ -114,14 +114,14 @@ bool set_opts(
 
 int get_long_opt(
     const bej_long_option* long_opts,
-    const int short_code
+    const int option_code
 )
 {
     int pos = -1;
 
     for(int i = 0; long_opts[i].name != NULL; ++i)
     {
-        if(long_opts[i].val == short_code)
+        if(long_opts[i].val == option_code)
         {
             pos = i;
             break;

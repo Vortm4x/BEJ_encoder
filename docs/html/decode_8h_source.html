@@ -81,79 +81,93 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> bej_unpack_nnint(uint64_t* val, FILE* stream);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> bej_unpack_sfl(<a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl, FILE* stream);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> bej_unpack_string(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <span class="keywordtype">char</span>* val, FILE* stream);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> bej_unpack_boolean(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <span class="keywordtype">bool</span>* val, FILE* stream);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> bej_unpack_real(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <a class="code" href="structbej__real.html">bej_real</a>* val, FILE* stream);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> bej_unpack_integer(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, int64_t* val, FILE* stream);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#ab4bcd9e97608c05cf53e67d326a86fbb">bej_unpack_nnint</a>(uint64_t* val, FILE* stream);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;FILE* bej_get_subset_entry_header(</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    FILE* schema_dict_file,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    FILE* annotation_dict_file,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    uint8_t entries_selector,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structbej__dict__entry__header.html">bej_dict_entry_header</a>* entry_header</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#a75804df260dde7c2dffa494d1f1f4dc0">bej_unpack_sfl</a>(<a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl, FILE* stream);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> bej_decode_enum(</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    FILE* json_file,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    FILE* dict_file,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entry,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    uint64_t value</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> bej_decode_anotation_name(</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    FILE* json_file,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    FILE* annotation_dict_file,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="structbej__tuple__s.html">bej_tuple_s</a>* sequence</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> bej_decode_name(</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    FILE* json_file,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    FILE* annotation_dict_file,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    uint16_t entries_count,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    uint8_t entries_selector</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">bool</span> bej_decode_stream(</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    FILE* json_file,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    FILE* bej_file,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    FILE* schema_dict_file,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    FILE* annotation_dict_file,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    uint16_t entries_count,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    uint8_t entries_selector,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    uint64_t prop_count,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> add_name,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> is_seq_array_idx</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">bool</span> bej_decode(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    FILE* json_file,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    FILE* bej_file,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    FILE* schema_dict_file,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    FILE* annotation_dict_file,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    FILE* pdr_map_file</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DECODE_H</span></div>
-<div class="ttc" id="astructbej__dict__entry__header_html"><div class="ttname"><a href="structbej__dict__entry__header.html">bej_dict_entry_header</a></div><div class="ttdoc">Structure that represents dictionary entry (with name).</div></div>
-<div class="ttc" id="astructbej__dict__entry_html"><div class="ttname"><a href="structbej__dict__entry.html">bej_dict_entry</a></div><div class="ttdoc">Structure that represents dictionary entry (with name).</div><div class="ttdef"><b>Definition:</b> utils.h:287</div></div>
-<div class="ttc" id="astructbej__real_html"><div class="ttname"><a href="structbej__real.html">bej_real</a></div><div class="ttdoc">Structure that simplifies bejReal type processing. Encoded floating point number data.</div><div class="ttdef"><b>Definition:</b> utils.h:225</div></div>
-<div class="ttc" id="astructbej__tuple__s_html"><div class="ttname"><a href="structbej__tuple__s.html">bej_tuple_s</a></div><div class="ttdoc">Structure that represents bejTupleS type.</div><div class="ttdef"><b>Definition:</b> utils.h:123</div></div>
-<div class="ttc" id="astructbej__tuple__sfl_html"><div class="ttname"><a href="structbej__tuple__sfl.html">bej_tuple_sfl</a></div><div class="ttdoc">Structure that unites F, S and L tuples. Header of BEJ-encoded values.</div><div class="ttdef"><b>Definition:</b> utils.h:194</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#aa04d6bbb143580688ad753c282511943">bej_unpack_string</a>(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <span class="keywordtype">char</span>* val, FILE* stream);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#a3da7efcead04670ec401d7524b14dccd">bej_unpack_boolean</a>(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <span class="keywordtype">bool</span>* val, FILE* stream);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#a698644431a74fdd38327956d88faa117">bej_unpack_real</a>(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <a class="code" href="structbej__real.html">bej_real</a>* val, FILE* stream);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#a503979ba7a4d8ae0585d6e0a18468227">bej_unpack_integer</a>(<span class="keyword">const</span> <a class="code" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, int64_t* val, FILE* stream);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;FILE* <a class="code" href="decode_8h.html#af50f1a70c70b23ce70d4a834023b9a2d">bej_get_subset_entry_header</a>(</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    FILE* schema_dict_file,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    FILE* annotation_dict_file,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl,</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">const</span> uint8_t entries_selector,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="structbej__dict__entry__header.html">bej_dict_entry_header</a>* entry_header</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#a91cbc882bc2a5f0a9470b4d4bdc478d2">bej_decode_anotation_name</a>(</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    FILE* json_file,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    FILE* annotation_dict_file,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__tuple__s.html">bej_tuple_s</a>* sequence</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> <a class="code" href="decode_8h.html#ad494c16949d410377b40dbb88f5e7752">bej_decode_name</a>(</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    FILE* json_file,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    FILE* annotation_dict_file,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>* tuple_sfl,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">const</span> uint16_t entries_count,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span> uint8_t entries_selector</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="decode_8h.html#a5b5cf907d7767fca28c4453bb5fd71f2">bej_decode_stream</a>(</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    FILE* json_file,</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    FILE* bej_file,</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    FILE* schema_dict_file,</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    FILE* annotation_dict_file,</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">const</span> <a class="code" href="structbej__dict__entry.html">bej_dict_entry</a>* entries,</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">const</span> uint16_t entries_count,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">const</span> uint8_t entries_selector,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">const</span> uint64_t prop_count,</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> add_name,</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> is_seq_array_idx</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="decode_8h.html#ab1f8fab8d76254eeb5acdde82a8610c6">bej_decode</a>(</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    FILE* json_file,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    FILE* bej_file,</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    FILE* schema_dict_file,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    FILE* annotation_dict_file,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    FILE* pdr_map_file</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DECODE_H</span></div>
+<div class="ttc" id="adecode_8h_html_a3da7efcead04670ec401d7524b14dccd"><div class="ttname"><a href="decode_8h.html#a3da7efcead04670ec401d7524b14dccd">bej_unpack_boolean</a></div><div class="ttdeci">void bej_unpack_boolean(const bej_tuple_l length, bool *val, FILE *stream)</div><div class="ttdoc">Unpacks a boolean value from a file stream based on the given length.</div><div class="ttdef"><b>Definition:</b> decode.c:9</div></div>
+<div class="ttc" id="adecode_8h_html_a503979ba7a4d8ae0585d6e0a18468227"><div class="ttname"><a href="decode_8h.html#a503979ba7a4d8ae0585d6e0a18468227">bej_unpack_integer</a></div><div class="ttdeci">void bej_unpack_integer(const bej_tuple_l length, int64_t *val, FILE *stream)</div><div class="ttdoc">Unpacks an integer from a file stream based on the given length.</div><div class="ttdef"><b>Definition:</b> decode.c:28</div></div>
+<div class="ttc" id="adecode_8h_html_a5b5cf907d7767fca28c4453bb5fd71f2"><div class="ttname"><a href="decode_8h.html#a5b5cf907d7767fca28c4453bb5fd71f2">bej_decode_stream</a></div><div class="ttdeci">bool bej_decode_stream(FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, const bej_dict_entry *entries, const uint16_t entries_count, const uint8_t entries_selector, const uint64_t prop_count, const bool add_name, const bool is_seq_array_idx)</div><div class="ttdoc">Decodes BEJ file to JSON for current dictionary entries.</div><div class="ttdef"><b>Definition:</b> decode.c:165</div></div>
+<div class="ttc" id="adecode_8h_html_a698644431a74fdd38327956d88faa117"><div class="ttname"><a href="decode_8h.html#a698644431a74fdd38327956d88faa117">bej_unpack_real</a></div><div class="ttdeci">void bej_unpack_real(const bej_tuple_l length, bej_real *val, FILE *stream)</div><div class="ttdoc">Unpacks a real number from a file stream based on the given length.</div><div class="ttdef"><b>Definition:</b> decode.c:15</div></div>
+<div class="ttc" id="adecode_8h_html_a75804df260dde7c2dffa494d1f1f4dc0"><div class="ttname"><a href="decode_8h.html#a75804df260dde7c2dffa494d1f1f4dc0">bej_unpack_sfl</a></div><div class="ttdeci">void bej_unpack_sfl(bej_tuple_sfl *tuple_sfl, FILE *stream)</div><div class="ttdoc">Unpacks a tuple_sfl structure from a file stream.</div><div class="ttdef"><b>Definition:</b> decode.c:63</div></div>
+<div class="ttc" id="adecode_8h_html_a91cbc882bc2a5f0a9470b4d4bdc478d2"><div class="ttname"><a href="decode_8h.html#a91cbc882bc2a5f0a9470b4d4bdc478d2">bej_decode_anotation_name</a></div><div class="ttdeci">void bej_decode_anotation_name(FILE *json_file, FILE *annotation_dict_file, const bej_tuple_s *sequence)</div><div class="ttdoc">Decodes an annotation name to JSON file stream.</div><div class="ttdef"><b>Definition:</b> decode.c:110</div></div>
+<div class="ttc" id="adecode_8h_html_aa04d6bbb143580688ad753c282511943"><div class="ttname"><a href="decode_8h.html#aa04d6bbb143580688ad753c282511943">bej_unpack_string</a></div><div class="ttdeci">void bej_unpack_string(const bej_tuple_l length, char *val, FILE *stream)</div><div class="ttdoc">Unpacks a string from a file stream based on the given length.</div><div class="ttdef"><b>Definition:</b> decode.c:4</div></div>
+<div class="ttc" id="adecode_8h_html_ab1f8fab8d76254eeb5acdde82a8610c6"><div class="ttname"><a href="decode_8h.html#ab1f8fab8d76254eeb5acdde82a8610c6">bej_decode</a></div><div class="ttdeci">bool bej_decode(FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, FILE *pdr_map_file)</div><div class="ttdoc">Decodes BEJ file to JSON.</div><div class="ttdef"><b>Definition:</b> decode.c:536</div></div>
+<div class="ttc" id="adecode_8h_html_ab4bcd9e97608c05cf53e67d326a86fbb"><div class="ttname"><a href="decode_8h.html#ab4bcd9e97608c05cf53e67d326a86fbb">bej_unpack_nnint</a></div><div class="ttdeci">void bej_unpack_nnint(uint64_t *val, FILE *stream)</div><div class="ttdoc">Unpacks a non-negative integer from a file stream.</div><div class="ttdef"><b>Definition:</b> decode.c:48</div></div>
+<div class="ttc" id="adecode_8h_html_ad494c16949d410377b40dbb88f5e7752"><div class="ttname"><a href="decode_8h.html#ad494c16949d410377b40dbb88f5e7752">bej_decode_name</a></div><div class="ttdeci">void bej_decode_name(FILE *json_file, FILE *annotation_dict_file, const bej_tuple_sfl *tuple_sfl, const bej_dict_entry *entries, const uint16_t entries_count, const uint8_t entries_selector)</div><div class="ttdoc">Decodes a property name to JSON streA.</div><div class="ttdef"><b>Definition:</b> decode.c:134</div></div>
+<div class="ttc" id="adecode_8h_html_af50f1a70c70b23ce70d4a834023b9a2d"><div class="ttname"><a href="decode_8h.html#af50f1a70c70b23ce70d4a834023b9a2d">bej_get_subset_entry_header</a></div><div class="ttdeci">FILE * bej_get_subset_entry_header(FILE *schema_dict_file, FILE *annotation_dict_file, const bej_tuple_sfl *tuple_sfl, const bej_dict_entry *entries, const uint8_t entries_selector, bej_dict_entry_header *entry_header)</div><div class="ttdoc">Retrieves a header for a new dictionary entries subset from dictionary files.</div><div class="ttdef"><b>Definition:</b> decode.c:72</div></div>
+<div class="ttc" id="astructbej__dict__entry__header_html"><div class="ttname"><a href="structbej__dict__entry__header.html">bej_dict_entry_header</a></div><div class="ttdoc">Structure that represents dictionary entry (with name).</div><div class="ttdef"><b>Definition:</b> utils.h:317</div></div>
+<div class="ttc" id="astructbej__dict__entry_html"><div class="ttname"><a href="structbej__dict__entry.html">bej_dict_entry</a></div><div class="ttdoc">Structure that represents dictionary entry (with name).</div><div class="ttdef"><b>Definition:</b> utils.h:341</div></div>
+<div class="ttc" id="astructbej__real_html"><div class="ttname"><a href="structbej__real.html">bej_real</a></div><div class="ttdoc">Structure that simplifies bejReal type processing. Stores floating point number data.</div><div class="ttdef"><b>Definition:</b> utils.h:283</div></div>
+<div class="ttc" id="astructbej__tuple__s_html"><div class="ttname"><a href="structbej__tuple__s.html">bej_tuple_s</a></div><div class="ttdoc">Structure that represents bejTupleS type.</div><div class="ttdef"><b>Definition:</b> utils.h:188</div></div>
+<div class="ttc" id="astructbej__tuple__sfl_html"><div class="ttname"><a href="structbej__tuple__sfl.html">bej_tuple_sfl</a></div><div class="ttdoc">Structure that unites F, S and L tuples. Header of BEJ-encoded values.</div><div class="ttdef"><b>Definition:</b> utils.h:255</div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div><div class="ttdoc">Comman utility functions for decoding and encoding.</div></div>
-<div class="ttc" id="autils_8h_html_aaebee95de049b79049c3ae67c385ee10"><div class="ttname"><a href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a></div><div class="ttdeci">uint64_t bej_tuple_l</div><div class="ttdoc">Represents bejTupleL type.</div><div class="ttdef"><b>Definition:</b> utils.h:171</div></div>
+<div class="ttc" id="autils_8h_html_aaebee95de049b79049c3ae67c385ee10"><div class="ttname"><a href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a></div><div class="ttdeci">uint64_t bej_tuple_l</div><div class="ttdoc">Represents bejTupleL type.</div><div class="ttdef"><b>Definition:</b> utils.h:234</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

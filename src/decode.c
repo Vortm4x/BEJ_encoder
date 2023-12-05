@@ -62,19 +62,17 @@ void bej_unpack_nnint(uint64_t* val, FILE* stream)
 
 void bej_unpack_sfl(bej_tuple_sfl* tuple_sfl, FILE* stream)
 {
-    //bej_unpack_tuple_s(&tuple_sfl->sequence, stream);
     bej_unpack_nnint((uint64_t*)&tuple_sfl->sequence, stream);
     fread(&tuple_sfl->format, sizeof(bej_tuple_f), 1, stream);
-    //bej_unpack_tuple_f(&tuple_sfl->format, stream);
     bej_unpack_nnint((uint64_t*)&tuple_sfl->length, stream);
 }
 
 FILE* bej_get_subset_entry_header(
     FILE* schema_dict_file,
     FILE* annotation_dict_file,
-    bej_tuple_sfl* tuple_sfl,
-    bej_dict_entry* entries,
-    uint8_t entries_selector,
+    const bej_tuple_sfl* tuple_sfl,
+    const bej_dict_entry* entries,
+    const uint8_t entries_selector,
     bej_dict_entry_header* entry_header
 )
 {
@@ -107,32 +105,10 @@ FILE* bej_get_subset_entry_header(
     return current_dict;
 }
 
-void bej_decode_enum(
-    FILE* json_file,
-    FILE* dict_file,
-    bej_tuple_sfl* tuple_sfl,
-    bej_dict_entry* entry,
-    uint64_t value
-)
-{
-    fseeko(
-        dict_file,
-        entry->header->offset + value * sizeof(bej_dict_entry),
-        SEEK_SET
-    );
-
-    bej_dict_entry annotation_entry;
-    read_dict_entry(&annotation_entry, dict_file);
-
-    fprintf(json_file, "\"%s\"", annotation_entry.name);
-
-    free_dict_entry(&annotation_entry);
-}
-
 void bej_decode_anotation_name(
     FILE* json_file,
     FILE* annotation_dict_file,
-    bej_tuple_s* sequence
+    const bej_tuple_s* sequence
 )
 {
     bej_dict_entry_header base_entry_header;
@@ -156,10 +132,10 @@ void bej_decode_anotation_name(
 void bej_decode_name(
     FILE* json_file,
     FILE* annotation_dict_file,
-    bej_tuple_sfl* tuple_sfl,
-    bej_dict_entry* entries,
-    uint16_t entries_count,
-    uint8_t entries_selector
+    const bej_tuple_sfl* tuple_sfl,
+    const bej_dict_entry* entries,
+    const uint16_t entries_count,
+    const uint8_t entries_selector
 )
 {
     if (tuple_sfl->sequence.dict_selector == entries_selector && tuple_sfl->format.ro_and_tla == 0)
@@ -189,12 +165,12 @@ bool bej_decode_stream(
     FILE* bej_file,
     FILE* schema_dict_file,
     FILE* annotation_dict_file,
-    bej_dict_entry* entries,
-    uint16_t entries_count,
-    uint8_t entries_selector,
-    uint64_t prop_count,
-    bool add_name,
-    bool is_seq_array_idx
+    const bej_dict_entry* entries,
+    const uint16_t entries_count,
+    const uint8_t entries_selector,
+    const uint64_t prop_count,
+    const bool add_name,
+    const bool is_seq_array_idx
 )
 {
     off_t stream_size = get_stream_size(bej_file);
@@ -336,9 +312,6 @@ bool bej_decode_stream(
                         value.exponent
                     );
                 }
-
-
-
 
                 break;
             }

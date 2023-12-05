@@ -99,46 +99,622 @@ Include dependency graph for decode.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab4bcd9e97608c05cf53e67d326a86fbb"><td class="memItemLeft" align="right" valign="top"><a id="ab4bcd9e97608c05cf53e67d326a86fbb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_nnint</b> (uint64_t *val, FILE *stream)</td></tr>
+<tr class="memitem:ab4bcd9e97608c05cf53e67d326a86fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#ab4bcd9e97608c05cf53e67d326a86fbb">bej_unpack_nnint</a> (uint64_t *val, FILE *stream)</td></tr>
+<tr class="memdesc:ab4bcd9e97608c05cf53e67d326a86fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks a non-negative integer from a file stream.  <a href="decode_8h.html#ab4bcd9e97608c05cf53e67d326a86fbb">More...</a><br /></td></tr>
 <tr class="separator:ab4bcd9e97608c05cf53e67d326a86fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75804df260dde7c2dffa494d1f1f4dc0"><td class="memItemLeft" align="right" valign="top"><a id="a75804df260dde7c2dffa494d1f1f4dc0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_sfl</b> (<a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, FILE *stream)</td></tr>
+<tr class="memitem:a75804df260dde7c2dffa494d1f1f4dc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a75804df260dde7c2dffa494d1f1f4dc0">bej_unpack_sfl</a> (<a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, FILE *stream)</td></tr>
+<tr class="memdesc:a75804df260dde7c2dffa494d1f1f4dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks a tuple_sfl structure from a file stream.  <a href="decode_8h.html#a75804df260dde7c2dffa494d1f1f4dc0">More...</a><br /></td></tr>
 <tr class="separator:a75804df260dde7c2dffa494d1f1f4dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04d6bbb143580688ad753c282511943"><td class="memItemLeft" align="right" valign="top"><a id="aa04d6bbb143580688ad753c282511943"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_string</b> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, char *val, FILE *stream)</td></tr>
+<tr class="memitem:aa04d6bbb143580688ad753c282511943"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#aa04d6bbb143580688ad753c282511943">bej_unpack_string</a> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, char *val, FILE *stream)</td></tr>
+<tr class="memdesc:aa04d6bbb143580688ad753c282511943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks a string from a file stream based on the given length.  <a href="decode_8h.html#aa04d6bbb143580688ad753c282511943">More...</a><br /></td></tr>
 <tr class="separator:aa04d6bbb143580688ad753c282511943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da7efcead04670ec401d7524b14dccd"><td class="memItemLeft" align="right" valign="top"><a id="a3da7efcead04670ec401d7524b14dccd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_boolean</b> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, bool *val, FILE *stream)</td></tr>
+<tr class="memitem:a3da7efcead04670ec401d7524b14dccd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a3da7efcead04670ec401d7524b14dccd">bej_unpack_boolean</a> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, bool *val, FILE *stream)</td></tr>
+<tr class="memdesc:a3da7efcead04670ec401d7524b14dccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks a boolean value from a file stream based on the given length.  <a href="decode_8h.html#a3da7efcead04670ec401d7524b14dccd">More...</a><br /></td></tr>
 <tr class="separator:a3da7efcead04670ec401d7524b14dccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698644431a74fdd38327956d88faa117"><td class="memItemLeft" align="right" valign="top"><a id="a698644431a74fdd38327956d88faa117"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_real</b> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <a class="el" href="structbej__real.html">bej_real</a> *val, FILE *stream)</td></tr>
+<tr class="memitem:a698644431a74fdd38327956d88faa117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a698644431a74fdd38327956d88faa117">bej_unpack_real</a> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, <a class="el" href="structbej__real.html">bej_real</a> *val, FILE *stream)</td></tr>
+<tr class="memdesc:a698644431a74fdd38327956d88faa117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks a real number from a file stream based on the given length.  <a href="decode_8h.html#a698644431a74fdd38327956d88faa117">More...</a><br /></td></tr>
 <tr class="separator:a698644431a74fdd38327956d88faa117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a503979ba7a4d8ae0585d6e0a18468227"><td class="memItemLeft" align="right" valign="top"><a id="a503979ba7a4d8ae0585d6e0a18468227"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_unpack_integer</b> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, int64_t *val, FILE *stream)</td></tr>
+<tr class="memitem:a503979ba7a4d8ae0585d6e0a18468227"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a503979ba7a4d8ae0585d6e0a18468227">bej_unpack_integer</a> (const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a> length, int64_t *val, FILE *stream)</td></tr>
+<tr class="memdesc:a503979ba7a4d8ae0585d6e0a18468227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unpacks an integer from a file stream based on the given length.  <a href="decode_8h.html#a503979ba7a4d8ae0585d6e0a18468227">More...</a><br /></td></tr>
 <tr class="separator:a503979ba7a4d8ae0585d6e0a18468227"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad14865557167d74fed4e08e08f188954"><td class="memItemLeft" align="right" valign="top"><a id="ad14865557167d74fed4e08e08f188954"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>bej_get_subset_entry_header</b> (FILE *schema_dict_file, FILE *annotation_dict_file, <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, uint8_t entries_selector, <a class="el" href="structbej__dict__entry__header.html">bej_dict_entry_header</a> *entry_header)</td></tr>
-<tr class="separator:ad14865557167d74fed4e08e08f188954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a060b309cfc0b789a9ad244c9d9cf27a6"><td class="memItemLeft" align="right" valign="top"><a id="a060b309cfc0b789a9ad244c9d9cf27a6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_decode_enum</b> (FILE *json_file, FILE *dict_file, <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entry, uint64_t value)</td></tr>
-<tr class="separator:a060b309cfc0b789a9ad244c9d9cf27a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6c4e86982718ff4f2dcb4911f24e4d"><td class="memItemLeft" align="right" valign="top"><a id="abc6c4e86982718ff4f2dcb4911f24e4d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_decode_anotation_name</b> (FILE *json_file, FILE *annotation_dict_file, <a class="el" href="structbej__tuple__s.html">bej_tuple_s</a> *sequence)</td></tr>
-<tr class="separator:abc6c4e86982718ff4f2dcb4911f24e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a9010b773b7d502b5bd05dfdee6073"><td class="memItemLeft" align="right" valign="top"><a id="ad9a9010b773b7d502b5bd05dfdee6073"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bej_decode_name</b> (FILE *json_file, FILE *annotation_dict_file, <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, uint16_t entries_count, uint8_t entries_selector)</td></tr>
-<tr class="separator:ad9a9010b773b7d502b5bd05dfdee6073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a469fdd7445ac9414fc54f895e1c065c5"><td class="memItemLeft" align="right" valign="top"><a id="a469fdd7445ac9414fc54f895e1c065c5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>bej_decode_stream</b> (FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, uint16_t entries_count, uint8_t entries_selector, uint64_t prop_count, bool add_name, bool is_seq_array_idx)</td></tr>
-<tr class="separator:a469fdd7445ac9414fc54f895e1c065c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f8fab8d76254eeb5acdde82a8610c6"><td class="memItemLeft" align="right" valign="top"><a id="ab1f8fab8d76254eeb5acdde82a8610c6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>bej_decode</b> (FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, FILE *pdr_map_file)</td></tr>
+<tr class="memitem:af50f1a70c70b23ce70d4a834023b9a2d"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#af50f1a70c70b23ce70d4a834023b9a2d">bej_get_subset_entry_header</a> (FILE *schema_dict_file, FILE *annotation_dict_file, const <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, const uint8_t entries_selector, <a class="el" href="structbej__dict__entry__header.html">bej_dict_entry_header</a> *entry_header)</td></tr>
+<tr class="memdesc:af50f1a70c70b23ce70d4a834023b9a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a header for a new dictionary entries subset from dictionary files.  <a href="decode_8h.html#af50f1a70c70b23ce70d4a834023b9a2d">More...</a><br /></td></tr>
+<tr class="separator:af50f1a70c70b23ce70d4a834023b9a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91cbc882bc2a5f0a9470b4d4bdc478d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a91cbc882bc2a5f0a9470b4d4bdc478d2">bej_decode_anotation_name</a> (FILE *json_file, FILE *annotation_dict_file, const <a class="el" href="structbej__tuple__s.html">bej_tuple_s</a> *sequence)</td></tr>
+<tr class="memdesc:a91cbc882bc2a5f0a9470b4d4bdc478d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes an annotation name to JSON file stream.  <a href="decode_8h.html#a91cbc882bc2a5f0a9470b4d4bdc478d2">More...</a><br /></td></tr>
+<tr class="separator:a91cbc882bc2a5f0a9470b4d4bdc478d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad494c16949d410377b40dbb88f5e7752"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#ad494c16949d410377b40dbb88f5e7752">bej_decode_name</a> (FILE *json_file, FILE *annotation_dict_file, const <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *tuple_sfl, const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, const uint16_t entries_count, const uint8_t entries_selector)</td></tr>
+<tr class="memdesc:ad494c16949d410377b40dbb88f5e7752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes a property name to JSON streA.  <a href="decode_8h.html#ad494c16949d410377b40dbb88f5e7752">More...</a><br /></td></tr>
+<tr class="separator:ad494c16949d410377b40dbb88f5e7752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b5cf907d7767fca28c4453bb5fd71f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#a5b5cf907d7767fca28c4453bb5fd71f2">bej_decode_stream</a> (FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entries, const uint16_t entries_count, const uint8_t entries_selector, const uint64_t prop_count, const bool add_name, const bool is_seq_array_idx)</td></tr>
+<tr class="memdesc:a5b5cf907d7767fca28c4453bb5fd71f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes BEJ file to JSON for current dictionary entries.  <a href="decode_8h.html#a5b5cf907d7767fca28c4453bb5fd71f2">More...</a><br /></td></tr>
+<tr class="separator:a5b5cf907d7767fca28c4453bb5fd71f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f8fab8d76254eeb5acdde82a8610c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decode_8h.html#ab1f8fab8d76254eeb5acdde82a8610c6">bej_decode</a> (FILE *json_file, FILE *bej_file, FILE *schema_dict_file, FILE *annotation_dict_file, FILE *pdr_map_file)</td></tr>
+<tr class="memdesc:ab1f8fab8d76254eeb5acdde82a8610c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes BEJ file to JSON.  <a href="decode_8h.html#ab1f8fab8d76254eeb5acdde82a8610c6">More...</a><br /></td></tr>
 <tr class="separator:ab1f8fab8d76254eeb5acdde82a8610c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions for decocing process (converting BEJ file to JSON file) </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ab1f8fab8d76254eeb5acdde82a8610c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f8fab8d76254eeb5acdde82a8610c6">&#9670;&nbsp;</a></span>bej_decode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bej_decode </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>json_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>bej_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>schema_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>annotation_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>pdr_map_file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decodes BEJ file to JSON. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">json_file</td><td>The JSON file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bej_file</td><td>The BEJ file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">schema_dict_file</td><td>The schema dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">annotation_dict_file</td><td>The annotation dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pdr_map_file</td><td>The PDR map file stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if decoding is successful, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a91cbc882bc2a5f0a9470b4d4bdc478d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91cbc882bc2a5f0a9470b4d4bdc478d2">&#9670;&nbsp;</a></span>bej_decode_anotation_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_decode_anotation_name </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>json_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>annotation_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__tuple__s.html">bej_tuple_s</a> *&#160;</td>
+          <td class="paramname"><em>sequence</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decodes an annotation name to JSON file stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">json_file</td><td>The JSON file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">annotation_dict_file</td><td>The annotation dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sequence</td><td>Decoded value sequence. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad494c16949d410377b40dbb88f5e7752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad494c16949d410377b40dbb88f5e7752">&#9670;&nbsp;</a></span>bej_decode_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_decode_name </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>json_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>annotation_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *&#160;</td>
+          <td class="paramname"><em>tuple_sfl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>entries_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>entries_selector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decodes a property name to JSON streA. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">json_file</td><td>The JSON file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">annotation_dict_file</td><td>The annotation dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tuple_sfl</td><td>Decoded value SFL tuple. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries</td><td>Current dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries_count</td><td>The number of dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries_selector</td><td>Dictionary entries selector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b5cf907d7767fca28c4453bb5fd71f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b5cf907d7767fca28c4453bb5fd71f2">&#9670;&nbsp;</a></span>bej_decode_stream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bej_decode_stream </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>json_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>bej_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>schema_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>annotation_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>entries_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>entries_selector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>prop_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>add_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_seq_array_idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decodes BEJ file to JSON for current dictionary entries. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">json_file</td><td>The JSON file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bej_file</td><td>The BEJ file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">schema_dict_file</td><td>The schema dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">annotation_dict_file</td><td>The annotation dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries</td><td>Pointer to the constant dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries_count</td><td>The number of dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries_selector</td><td>Selector for dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">prop_count</td><td>The properties count of current subset. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">add_name</td><td>Defines does current subset props have names. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_seq_array_idx</td><td>Defines is sequence of decoded SFL tuple an array index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if decoding is successful, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="af50f1a70c70b23ce70d4a834023b9a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af50f1a70c70b23ce70d4a834023b9a2d">&#9670;&nbsp;</a></span>bej_get_subset_entry_header()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* bej_get_subset_entry_header </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>schema_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>annotation_dict_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *&#160;</td>
+          <td class="paramname"><em>tuple_sfl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>entries_selector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbej__dict__entry__header.html">bej_dict_entry_header</a> *&#160;</td>
+          <td class="paramname"><em>entry_header</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves a header for a new dictionary entries subset from dictionary files. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">schema_dict_file</td><td>The schema dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">annotation_dict_file</td><td>The annotation dictionary file stream. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tuple_sfl</td><td>SFL tuple of decoded value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries</td><td>Current collection dictionary entries. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entries_selector</td><td>Dictionary entries sele. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">entry_header</td><td>Pointer to store the retrieved entry header. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The file stream representing the subset entry header. </dd></dl>
+
+</div>
+</div>
+<a id="a3da7efcead04670ec401d7524b14dccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3da7efcead04670ec401d7524b14dccd">&#9670;&nbsp;</a></span>bej_unpack_boolean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_boolean </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks a boolean value from a file stream based on the given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Length of the boolean value to be unpacked. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Pointer to store the unpacked boolean value. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the boolean value from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a503979ba7a4d8ae0585d6e0a18468227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a503979ba7a4d8ae0585d6e0a18468227">&#9670;&nbsp;</a></span>bej_unpack_integer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_integer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks an integer from a file stream based on the given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Length of the integer to be unpacked. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Pointer to store the unpacked integer. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the integer from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab4bcd9e97608c05cf53e67d326a86fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4bcd9e97608c05cf53e67d326a86fbb">&#9670;&nbsp;</a></span>bej_unpack_nnint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_nnint </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks a non-negative integer from a file stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Pointer to store the unpacked non-negative integer value. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the value from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a698644431a74fdd38327956d88faa117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698644431a74fdd38327956d88faa117">&#9670;&nbsp;</a></span>bej_unpack_real()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_real </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbej__real.html">bej_real</a> *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks a real number from a file stream based on the given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Length of the real number to be unpacked. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Pointer to store the unpacked real number. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the real number from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75804df260dde7c2dffa494d1f1f4dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75804df260dde7c2dffa494d1f1f4dc0">&#9670;&nbsp;</a></span>bej_unpack_sfl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_sfl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a> *&#160;</td>
+          <td class="paramname"><em>tuple_sfl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks a tuple_sfl structure from a file stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">tuple_sfl</td><td>Pointer to store the unpacked <a class="el" href="structbej__tuple__sfl.html" title="Structure that unites F, S and L tuples. Header of BEJ-encoded values.">bej_tuple_sfl</a> structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the structure from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa04d6bbb143580688ad753c282511943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04d6bbb143580688ad753c282511943">&#9670;&nbsp;</a></span>bej_unpack_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bej_unpack_string </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#aaebee95de049b79049c3ae67c385ee10">bej_tuple_l</a>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unpacks a string from a file stream based on the given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Length of the string to be unpacked. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Pointer to store the unpacked string. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">stream</td><td>The file stream to unpack the string from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

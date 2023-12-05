@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reserved_107',['reserved',['../structbej__tuple__f.html#adc4dd05941975ff32b8ce86bc2ecc251',1,'bej_tuple_f']]],
-  ['ro_5fand_5ftla_108',['ro_and_tla',['../structbej__tuple__f.html#a7321279e74aa07872b5bab8effa54954',1,'bej_tuple_f']]]
+  ['pdrmap_5ffile_5fopt_217',['pdrmap_file_opt',['../structbej__cmd__options.html#a2b5a144b721ed5c0e0204efdf647a368',1,'bej_cmd_options']]],
+  ['pdrmap_5ffile_5fpath_218',['pdrmap_file_path',['../structbej__cmd__options.html#a9c3930236402e56d90fc3c88a480ad86',1,'bej_cmd_options']]]
 ];

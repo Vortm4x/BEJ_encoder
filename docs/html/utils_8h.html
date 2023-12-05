@@ -70,8 +70,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">utils.h File Reference</div>  </div>
 </div><!--header-->
@@ -110,6 +109,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__file__header.html">bej_file_header</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents BEJ file meta data.  <a href="structbej__file__header.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__dict__header.html">bej_dict_header</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents Dictionary file meta.  <a href="structbej__dict__header.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__tuple__s.html">bej_tuple_s</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents bejTupleS type.  <a href="structbej__tuple__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,7 +125,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that unites F, S and L tuples. Header of BEJ-encoded values.  <a href="structbej__tuple__sfl.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__real.html">bej_real</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that simplifies bejReal type processing. Encoded floating point number data.  <a href="structbej__real.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that simplifies bejReal type processing. Stores floating point number data.  <a href="structbej__real.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__dict__entry__header.html">bej_dict_entry_header</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents dictionary entry (with name).  <a href="structbej__dict__entry__header.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbej__dict__entry.html">bej_dict_entry</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that represents dictionary entry (with name).  <a href="structbej__dict__entry.html#details">More...</a><br /></td></tr>
@@ -129,74 +137,107 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a699ea5fbe05feccd4f8ea363a6850e37"><td class="memItemLeft" align="right" valign="top"><a id="a699ea5fbe05feccd4f8ea363a6850e37"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_SET</b>&#160;&#160;&#160;0x00</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a699ea5fbe05feccd4f8ea363a6850e37">BEJ_FORMAT_SET</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:a699ea5fbe05feccd4f8ea363a6850e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a set. <br /></td></tr>
 <tr class="separator:a699ea5fbe05feccd4f8ea363a6850e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15aa8f39492d306f0c7a44de1dfadfd"><td class="memItemLeft" align="right" valign="top"><a id="ab15aa8f39492d306f0c7a44de1dfadfd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_ARRAY</b>&#160;&#160;&#160;0x01</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ab15aa8f39492d306f0c7a44de1dfadfd">BEJ_FORMAT_ARRAY</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:ab15aa8f39492d306f0c7a44de1dfadfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for an array. <br /></td></tr>
 <tr class="separator:ab15aa8f39492d306f0c7a44de1dfadfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fda3496ddc4d9927d5dddde02318fde"><td class="memItemLeft" align="right" valign="top"><a id="a7fda3496ddc4d9927d5dddde02318fde"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_NULL</b>&#160;&#160;&#160;0x02</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a7fda3496ddc4d9927d5dddde02318fde">BEJ_FORMAT_NULL</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="memdesc:a7fda3496ddc4d9927d5dddde02318fde"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for null. <br /></td></tr>
 <tr class="separator:a7fda3496ddc4d9927d5dddde02318fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00b0cf10cae841c9342e88cae9a0ecc8"><td class="memItemLeft" align="right" valign="top"><a id="a00b0cf10cae841c9342e88cae9a0ecc8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_INTEGER</b>&#160;&#160;&#160;0x03</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a00b0cf10cae841c9342e88cae9a0ecc8">BEJ_FORMAT_INTEGER</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="memdesc:a00b0cf10cae841c9342e88cae9a0ecc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for an integer. <br /></td></tr>
 <tr class="separator:a00b0cf10cae841c9342e88cae9a0ecc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8628ecdcba4f433cdaa603c8af71c997"><td class="memItemLeft" align="right" valign="top"><a id="a8628ecdcba4f433cdaa603c8af71c997"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_ENUM</b>&#160;&#160;&#160;0x04</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a8628ecdcba4f433cdaa603c8af71c997">BEJ_FORMAT_ENUM</a>&#160;&#160;&#160;0x04</td></tr>
+<tr class="memdesc:a8628ecdcba4f433cdaa603c8af71c997"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for an enumeration. <br /></td></tr>
 <tr class="separator:a8628ecdcba4f433cdaa603c8af71c997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80b66d420799b30a0058a8b89c7b10dc"><td class="memItemLeft" align="right" valign="top"><a id="a80b66d420799b30a0058a8b89c7b10dc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_STRING</b>&#160;&#160;&#160;0x05</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a80b66d420799b30a0058a8b89c7b10dc">BEJ_FORMAT_STRING</a>&#160;&#160;&#160;0x05</td></tr>
+<tr class="memdesc:a80b66d420799b30a0058a8b89c7b10dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a string. <br /></td></tr>
 <tr class="separator:a80b66d420799b30a0058a8b89c7b10dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6209d86f40af50019978405d209b7f4b"><td class="memItemLeft" align="right" valign="top"><a id="a6209d86f40af50019978405d209b7f4b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_REAL</b>&#160;&#160;&#160;0x06</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a6209d86f40af50019978405d209b7f4b">BEJ_FORMAT_REAL</a>&#160;&#160;&#160;0x06</td></tr>
+<tr class="memdesc:a6209d86f40af50019978405d209b7f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a real number. <br /></td></tr>
 <tr class="separator:a6209d86f40af50019978405d209b7f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9799d2cf5ecf227520176dbfb9f53b1f"><td class="memItemLeft" align="right" valign="top"><a id="a9799d2cf5ecf227520176dbfb9f53b1f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_BOOLEAN</b>&#160;&#160;&#160;0x07</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a9799d2cf5ecf227520176dbfb9f53b1f">BEJ_FORMAT_BOOLEAN</a>&#160;&#160;&#160;0x07</td></tr>
+<tr class="memdesc:a9799d2cf5ecf227520176dbfb9f53b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a boolean. <br /></td></tr>
 <tr class="separator:a9799d2cf5ecf227520176dbfb9f53b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac90b52905c3539d81fc48fe336132d1a"><td class="memItemLeft" align="right" valign="top"><a id="ac90b52905c3539d81fc48fe336132d1a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_BYTE_STRING</b>&#160;&#160;&#160;0x08</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ac90b52905c3539d81fc48fe336132d1a">BEJ_FORMAT_BYTE_STRING</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="memdesc:ac90b52905c3539d81fc48fe336132d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a byte string. <br /></td></tr>
 <tr class="separator:ac90b52905c3539d81fc48fe336132d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac75c656ed392b6f683c00e465ed2505e"><td class="memItemLeft" align="right" valign="top"><a id="ac75c656ed392b6f683c00e465ed2505e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_CHOICE</b>&#160;&#160;&#160;0x09</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ac75c656ed392b6f683c00e465ed2505e">BEJ_FORMAT_CHOICE</a>&#160;&#160;&#160;0x09</td></tr>
+<tr class="memdesc:ac75c656ed392b6f683c00e465ed2505e"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a choice. <br /></td></tr>
 <tr class="separator:ac75c656ed392b6f683c00e465ed2505e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0626954ca55a5ee5aa98aa49706cda76"><td class="memItemLeft" align="right" valign="top"><a id="a0626954ca55a5ee5aa98aa49706cda76"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_PROPERTY_ANNOTATION</b>&#160;&#160;&#160;0x0A</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a0626954ca55a5ee5aa98aa49706cda76">BEJ_FORMAT_PROPERTY_ANNOTATION</a>&#160;&#160;&#160;0x0A</td></tr>
+<tr class="memdesc:a0626954ca55a5ee5aa98aa49706cda76"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a property annotation. <br /></td></tr>
 <tr class="separator:a0626954ca55a5ee5aa98aa49706cda76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7323a5b4eb8eb8646d3b87ffba425eb8"><td class="memItemLeft" align="right" valign="top"><a id="a7323a5b4eb8eb8646d3b87ffba425eb8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_REGISTRY_ITEM</b>&#160;&#160;&#160;0x0B</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a7323a5b4eb8eb8646d3b87ffba425eb8">BEJ_FORMAT_REGISTRY_ITEM</a>&#160;&#160;&#160;0x0B</td></tr>
+<tr class="memdesc:a7323a5b4eb8eb8646d3b87ffba425eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a registry item. <br /></td></tr>
 <tr class="separator:a7323a5b4eb8eb8646d3b87ffba425eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60e01b69026aba1ee77d3c6b1df7b19a"><td class="memItemLeft" align="right" valign="top"><a id="a60e01b69026aba1ee77d3c6b1df7b19a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_RESOURCE_LINK</b>&#160;&#160;&#160;0x0E</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a60e01b69026aba1ee77d3c6b1df7b19a">BEJ_FORMAT_RESOURCE_LINK</a>&#160;&#160;&#160;0x0E</td></tr>
+<tr class="memdesc:a60e01b69026aba1ee77d3c6b1df7b19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a resource link. <br /></td></tr>
 <tr class="separator:a60e01b69026aba1ee77d3c6b1df7b19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aacdd6c9d5421e510c8c717bb5c1e16"><td class="memItemLeft" align="right" valign="top"><a id="a0aacdd6c9d5421e510c8c717bb5c1e16"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_FORMAT_RESOURCE_LINK_EXPANSION</b>&#160;&#160;&#160;0x0F</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a0aacdd6c9d5421e510c8c717bb5c1e16">BEJ_FORMAT_RESOURCE_LINK_EXPANSION</a>&#160;&#160;&#160;0x0F</td></tr>
+<tr class="memdesc:a0aacdd6c9d5421e510c8c717bb5c1e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ format for a resource link expansion. <br /></td></tr>
 <tr class="separator:a0aacdd6c9d5421e510c8c717bb5c1e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05482fec8ddb1ef6eb3922cea0c91477"><td class="memItemLeft" align="right" valign="top"><a id="a05482fec8ddb1ef6eb3922cea0c91477"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA</b>&#160;&#160;&#160;0b0</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a05482fec8ddb1ef6eb3922cea0c91477">BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA</a>&#160;&#160;&#160;0b0</td></tr>
+<tr class="memdesc:a05482fec8ddb1ef6eb3922cea0c91477"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ dictionary selector for major schema. <br /></td></tr>
 <tr class="separator:a05482fec8ddb1ef6eb3922cea0c91477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a970584480c4ac58667f5913e0599b919"><td class="memItemLeft" align="right" valign="top"><a id="a970584480c4ac58667f5913e0599b919"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_DICTIONARY_SELECTOR_ANNOTATION</b>&#160;&#160;&#160;0b1</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a970584480c4ac58667f5913e0599b919">BEJ_DICTIONARY_SELECTOR_ANNOTATION</a>&#160;&#160;&#160;0b1</td></tr>
+<tr class="memdesc:a970584480c4ac58667f5913e0599b919"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ dictionary selector for annotation. <br /></td></tr>
 <tr class="separator:a970584480c4ac58667f5913e0599b919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b8a3fd04a24d776dd77466ce48a09da"><td class="memItemLeft" align="right" valign="top"><a id="a8b8a3fd04a24d776dd77466ce48a09da"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_VERSION_1_0_0</b>&#160;&#160;&#160;0xF1F0F000</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a8b8a3fd04a24d776dd77466ce48a09da">BEJ_VERSION_1_0_0</a>&#160;&#160;&#160;0xF1F0F000</td></tr>
+<tr class="memdesc:a8b8a3fd04a24d776dd77466ce48a09da"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ version 1.0.0. <br /></td></tr>
 <tr class="separator:a8b8a3fd04a24d776dd77466ce48a09da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66dd8096740cc3bd375393c13aca33ac"><td class="memItemLeft" align="right" valign="top"><a id="a66dd8096740cc3bd375393c13aca33ac"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_VERSION_1_1_0</b>&#160;&#160;&#160;0xF1F1F000</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a66dd8096740cc3bd375393c13aca33ac">BEJ_VERSION_1_1_0</a>&#160;&#160;&#160;0xF1F1F000</td></tr>
+<tr class="memdesc:a66dd8096740cc3bd375393c13aca33ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ version 1.1.0. <br /></td></tr>
 <tr class="separator:a66dd8096740cc3bd375393c13aca33ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e3306b7482fd448286995f6a8ff13f"><td class="memItemLeft" align="right" valign="top"><a id="a78e3306b7482fd448286995f6a8ff13f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_SCHEMA_CLASS_MAJOR</b>&#160;&#160;&#160;0x00</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a78e3306b7482fd448286995f6a8ff13f">BEJ_SCHEMA_CLASS_MAJOR</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="memdesc:a78e3306b7482fd448286995f6a8ff13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ major schema class. <br /></td></tr>
 <tr class="separator:a78e3306b7482fd448286995f6a8ff13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eb4435ccd9c5b2a4d40df95f27c0766"><td class="memItemLeft" align="right" valign="top"><a id="a0eb4435ccd9c5b2a4d40df95f27c0766"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_SCHEMA_CLASS_EVENT</b>&#160;&#160;&#160;0x01</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a0eb4435ccd9c5b2a4d40df95f27c0766">BEJ_SCHEMA_CLASS_EVENT</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="memdesc:a0eb4435ccd9c5b2a4d40df95f27c0766"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ event schema class. <br /></td></tr>
 <tr class="separator:a0eb4435ccd9c5b2a4d40df95f27c0766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2259c82fe14168a18d035116dbad02a"><td class="memItemLeft" align="right" valign="top"><a id="ae2259c82fe14168a18d035116dbad02a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_SCHEMA_CLASS_ERROR</b>&#160;&#160;&#160;0x04</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ae2259c82fe14168a18d035116dbad02a">BEJ_SCHEMA_CLASS_ERROR</a>&#160;&#160;&#160;0x04</td></tr>
+<tr class="memdesc:ae2259c82fe14168a18d035116dbad02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">BEJ error schema class. <br /></td></tr>
 <tr class="separator:ae2259c82fe14168a18d035116dbad02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a370c89a360a45399759faca9f5dec962"><td class="memItemLeft" align="right" valign="top"><a id="a370c89a360a45399759faca9f5dec962"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEJ_INAVALID_SEQUENCE_NUMBER</b>&#160;&#160;&#160;UINT64_MAX</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a370c89a360a45399759faca9f5dec962">BEJ_INAVALID_SEQUENCE_NUMBER</a>&#160;&#160;&#160;UINT64_MAX</td></tr>
+<tr class="memdesc:a370c89a360a45399759faca9f5dec962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalid sequence number for dictionary entry. <br /></td></tr>
 <tr class="separator:a370c89a360a45399759faca9f5dec962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a280d40ecc9c5b2bce8ebe0107406c878"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a280d40ecc9c5b2bce8ebe0107406c878">BEJ_PACKED_STRUCT</a>&#160;&#160;&#160;__attribute__((packed))</td></tr>
+<tr class="memdesc:a280d40ecc9c5b2bce8ebe0107406c878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for packed structure.  <a href="utils_8h.html#a280d40ecc9c5b2bce8ebe0107406c878">More...</a><br /></td></tr>
+<tr class="separator:a280d40ecc9c5b2bce8ebe0107406c878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="memItemLeft" align="right" valign="top"><a id="a7ed0d46f62e942bc5d3e9119d50283d7"></a>
+typedef struct <a class="el" href="utils_8h.html#a280d40ecc9c5b2bce8ebe0107406c878">BEJ_PACKED_STRUCT</a> <a class="el" href="structbej__file__header.html">bej_file_header</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a7ed0d46f62e942bc5d3e9119d50283d7">bej_file_header</a></td></tr>
+<tr class="memdesc:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
+<tr class="separator:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992445b501d1da1d0a9fcd6c5ae384df"><td class="memItemLeft" align="right" valign="top"><a id="a992445b501d1da1d0a9fcd6c5ae384df"></a>
+typedef struct <a class="el" href="utils_8h.html#a280d40ecc9c5b2bce8ebe0107406c878">BEJ_PACKED_STRUCT</a> <a class="el" href="structbej__dict__header.html">bej_dict_header</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a992445b501d1da1d0a9fcd6c5ae384df">bej_dict_header</a></td></tr>
+<tr class="memdesc:a992445b501d1da1d0a9fcd6c5ae384df"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
+<tr class="separator:a992445b501d1da1d0a9fcd6c5ae384df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afef916327387748064ccbaefc27331cc"><td class="memItemLeft" align="right" valign="top"><a id="afef916327387748064ccbaefc27331cc"></a>
 typedef struct <a class="el" href="structbej__tuple__s.html">bej_tuple_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#afef916327387748064ccbaefc27331cc">bej_tuple_s</a></td></tr>
 <tr class="memdesc:afef916327387748064ccbaefc27331cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
@@ -217,6 +258,10 @@ typedef struct <a class="el" href="structbej__tuple__sfl.html">bej_tuple_sfl</a>
 typedef struct <a class="el" href="structbej__real.html">bej_real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a23015557aed3a8c7b5835a61dc1bf66a">bej_real</a></td></tr>
 <tr class="memdesc:a23015557aed3a8c7b5835a61dc1bf66a"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
 <tr class="separator:a23015557aed3a8c7b5835a61dc1bf66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="memItemLeft" align="right" valign="top"><a id="a51f84b7e448da5d2b5b1914f51cc5ac5"></a>
+typedef struct <a class="el" href="utils_8h.html#a280d40ecc9c5b2bce8ebe0107406c878">BEJ_PACKED_STRUCT</a> <a class="el" href="structbej__dict__entry__header.html">bej_dict_entry_header</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a51f84b7e448da5d2b5b1914f51cc5ac5">bej_dict_entry_header</a></td></tr>
+<tr class="memdesc:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
+<tr class="separator:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a757f3a4ef5b122e5991cd7003c685d31"><td class="memItemLeft" align="right" valign="top"><a id="a757f3a4ef5b122e5991cd7003c685d31"></a>
 typedef struct <a class="el" href="structbej__dict__entry.html">bej_dict_entry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a757f3a4ef5b122e5991cd7003c685d31">bej_dict_entry</a></td></tr>
 <tr class="memdesc:a757f3a4ef5b122e5991cd7003c685d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
@@ -224,9 +269,6 @@ typedef struct <a class="el" href="structbej__dict__entry.html">bej_dict_entry</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9855f5658db7dbd9c8a071e53c5a58cd"><td class="memItemLeft" align="right" valign="top"><a id="a9855f5658db7dbd9c8a071e53c5a58cd"></a>
-struct&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((packed)) <a class="el" href="structbej__file__header.html">bej_file_header</a></td></tr>
-<tr class="separator:a9855f5658db7dbd9c8a071e53c5a58cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8322022d7e0c2b40b109f1c007e48ac"><td class="memItemLeft" align="right" valign="top">off_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ac8322022d7e0c2b40b109f1c007e48ac">get_stream_size</a> (FILE *stream)</td></tr>
 <tr class="separator:ac8322022d7e0c2b40b109f1c007e48ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82d5412fd2dec4cbdee4ab2e2abd22b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a82d5412fd2dec4cbdee4ab2e2abd22b3">read_dict_entry</a> (<a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> *entry, FILE *stream)</td></tr>
@@ -237,25 +279,28 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> (
 <tr class="separator:aaf1799fd868857bd91db3ee3d06e507f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6759256fb712882dff2ed6022dba72f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a6759256fb712882dff2ed6022dba72f4">free_dict_entry_children</a> (<a class="el" href="structbej__dict__entry.html">bej_dict_entry</a> **children, const uint16_t child_count)</td></tr>
 <tr class="separator:a6759256fb712882dff2ed6022dba72f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="memItemLeft" align="right" valign="top"><a id="a7ed0d46f62e942bc5d3e9119d50283d7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a7ed0d46f62e942bc5d3e9119d50283d7">bej_file_header</a></td></tr>
-<tr class="memdesc:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
-<tr class="separator:a7ed0d46f62e942bc5d3e9119d50283d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a992445b501d1da1d0a9fcd6c5ae384df"><td class="memItemLeft" align="right" valign="top"><a id="a992445b501d1da1d0a9fcd6c5ae384df"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a992445b501d1da1d0a9fcd6c5ae384df">bej_dict_header</a></td></tr>
-<tr class="memdesc:a992445b501d1da1d0a9fcd6c5ae384df"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
-<tr class="separator:a992445b501d1da1d0a9fcd6c5ae384df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="memItemLeft" align="right" valign="top"><a id="a51f84b7e448da5d2b5b1914f51cc5ac5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a51f84b7e448da5d2b5b1914f51cc5ac5">bej_dict_entry_header</a></td></tr>
-<tr class="memdesc:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">default struct typedef <br /></td></tr>
-<tr class="separator:a51f84b7e448da5d2b5b1914f51cc5ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Comman utility functions for decoding and encoding. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a280d40ecc9c5b2bce8ebe0107406c878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a280d40ecc9c5b2bce8ebe0107406c878">&#9670;&nbsp;</a></span>BEJ_PACKED_STRUCT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BEJ_PACKED_STRUCT&#160;&#160;&#160;__attribute__((packed))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro for packed structure. </p>
+<dl class="section note"><dt>Note</dt><dd>Doxygen treats <b>attribute</b> as a function declaration </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="af559be37f2212c67f5a04b6cb53a3741"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af559be37f2212c67f5a04b6cb53a3741">&#9670;&nbsp;</a></span>free_dict_entry()</h2>
 

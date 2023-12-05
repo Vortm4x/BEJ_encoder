@@ -15,7 +15,77 @@
 #include <stdbool.h>
 
 
-// BEJ FORMAT definitions
+/**
+ * @def BEJ_FORMAT_SET
+ * @brief BEJ format for a set.
+ *
+ * @def BEJ_FORMAT_ARRAY
+ * @brief BEJ format for an array.
+ *
+ * @def BEJ_FORMAT_NULL
+ * @brief BEJ format for null.
+ *
+ * @def BEJ_FORMAT_INTEGER
+ * @brief BEJ format for an integer.
+ *
+ * @def BEJ_FORMAT_ENUM
+ * @brief BEJ format for an enumeration.
+ *
+ * @def BEJ_FORMAT_STRING
+ * @brief BEJ format for a string.
+ *
+ * @def BEJ_FORMAT_REAL
+ * @brief BEJ format for a real number.
+ *
+ * @def BEJ_FORMAT_BOOLEAN
+ * @brief BEJ format for a boolean.
+ *
+ * @def BEJ_FORMAT_BYTE_STRING
+ * @brief BEJ format for a byte string.
+ *
+ * @def BEJ_FORMAT_CHOICE
+ * @brief BEJ format for a choice.
+ *
+ * @def BEJ_FORMAT_PROPERTY_ANNOTATION
+ * @brief BEJ format for a property annotation.
+ *
+ * @def BEJ_FORMAT_REGISTRY_ITEM
+ * @brief BEJ format for a registry item.
+ *
+ * @def BEJ_FORMAT_RESOURCE_LINK
+ * @brief BEJ format for a resource link.
+ *
+ * @def BEJ_FORMAT_RESOURCE_LINK_EXPANSION
+ * @brief BEJ format for a resource link expansion.
+ *
+ * @def BEJ_DICTIONARY_SELECTOR_MAJOR_SCHEMA
+ * @brief BEJ dictionary selector for major schema.
+ *
+ * @def BEJ_DICTIONARY_SELECTOR_ANNOTATION
+ * @brief BEJ dictionary selector for annotation.
+ *
+ * @def BEJ_VERSION_1_0_0
+ * @brief BEJ version 1.0.0.
+ *
+ * @def BEJ_VERSION_1_1_0
+ * @brief BEJ version 1.1.0.
+ *
+ * @def BEJ_SCHEMA_CLASS_MAJOR
+ * @brief BEJ major schema class.
+ *
+ * @def BEJ_SCHEMA_CLASS_EVENT
+ * @brief BEJ event schema class.
+ *
+ * @def BEJ_SCHEMA_CLASS_ERROR
+ * @brief BEJ error schema class.
+ *
+ * @def BEJ_INAVALID_SEQUENCE_NUMBER
+ * @brief Invalid sequence number for dictionary entry.
+ *
+ * @def BEJ_PACKED_STRUCT
+ * @brief Macro for packed structure.
+ * @note Doxygen treats __attribute__ as a function declaration
+ */
 #define BEJ_FORMAT_SET                              0x00
 #define BEJ_FORMAT_ARRAY                            0x01
 #define BEJ_FORMAT_NULL                             0x02
@@ -43,9 +113,9 @@
 
 #define BEJ_INAVALID_SEQUENCE_NUMBER                UINT64_MAX
 
+#define BEJ_PACKED_STRUCT __attribute__((packed))
 
 /**
- *
  *  @struct bej_file_header
  *  @brief Structure that represents BEJ file meta data
  *
@@ -60,9 +130,8 @@
  *
  *  @typedef bej_file_header
  *  @brief default struct typedef
- *
  **/
-typedef struct __attribute__((packed)) bej_file_header
+typedef struct BEJ_PACKED_STRUCT bej_file_header
 {
     uint32_t version;
     uint16_t flags;
@@ -71,7 +140,6 @@ typedef struct __attribute__((packed)) bej_file_header
 bej_file_header;
 
 /**
- *
  *  @struct bej_dict_header
  *  @brief Structure that represents Dictionary file meta
  *
@@ -92,9 +160,8 @@ bej_file_header;
 
  *  @typedef bej_dict_header
  *  @brief default struct typedef
- *
  **/
-typedef struct __attribute__((packed)) bej_dict_header
+typedef struct BEJ_PACKED_STRUCT bej_dict_header
 {
     uint8_t version;
     uint8_t flags;
@@ -105,7 +172,6 @@ typedef struct __attribute__((packed)) bej_dict_header
 bej_dict_header;
 
 /**
- *
  *  @struct bej_tuple_s
  *  @brief Structure that represents bejTupleS type
  *
@@ -117,7 +183,6 @@ bej_dict_header;
  *
  *  @typedef bej_tuple_s
  *  @brief default struct typedef
- *
  **/
 typedef struct bej_tuple_s
 {
@@ -128,7 +193,6 @@ bej_tuple_s;
 
 
 /**
- *
  *  @struct bej_tuple_f
  *  @brief Structure that represents bejTupleF type
  *
@@ -150,7 +214,6 @@ bej_tuple_s;
  *
  *  @typedef bej_tuple_f
  *  @brief default struct typedef
- *
  **/
 typedef struct bej_tuple_f
 {
@@ -172,7 +235,6 @@ typedef uint64_t bej_tuple_l;
 
 
 /**
- *
  *  @struct bej_tuple_sfl
  *  @brief Structure that unites F, S and L tuples.
  *  Header of BEJ-encoded values
@@ -188,7 +250,6 @@ typedef uint64_t bej_tuple_l;
  *
  *  @typedef bej_tuple_sfl
  *  @brief default struct typedef
- *
  **/
 typedef struct bej_tuple_sfl
 {
@@ -200,10 +261,8 @@ bej_tuple_sfl;
 
 
 /**
- *
  *  @struct bej_real
- *  @brief Structure that simplifies bejReal type processing.
- *  Encoded floating point number data
+ *  @brief Structure that simplifies bejReal type processing. Stores floating point number data
  *
  *  @var bej_real::whole
  *  @brief Whole part value
@@ -219,7 +278,6 @@ bej_tuple_sfl;
  *
  *  @typedef bej_real
  *  @brief default struct typedef
- *
  **/
 typedef struct bej_real
 {
@@ -231,7 +289,6 @@ typedef struct bej_real
 bej_real;
 
 /**
- *
  *  @struct bej_dict_entry_header
  *  @brief Structure that represents dictionary entry (with name).
  *
@@ -255,9 +312,8 @@ bej_real;
  *
  *  @typedef bej_dict_entry_header
  *  @brief default struct typedef
- *
  **/
-typedef struct __attribute__((packed)) bej_dict_entry_header
+typedef struct BEJ_PACKED_STRUCT bej_dict_entry_header
 {
     bej_tuple_f format;
     uint16_t sequence;
@@ -269,7 +325,6 @@ typedef struct __attribute__((packed)) bej_dict_entry_header
 bej_dict_entry_header;
 
 /**
- *
  *  @struct bej_dict_entry
  *  @brief Structure that represents dictionary entry (with name).
  *
@@ -281,7 +336,6 @@ bej_dict_entry_header;
  *
  *  @typedef bej_dict_entry
  *  @brief default struct typedef
- *
  **/
 typedef struct bej_dict_entry
 {
@@ -292,23 +346,19 @@ bej_dict_entry;
 
 
 /**
- *
  *  Gets size of stream in bytes
  *
  *  @param[in]  stream          File stream
  *  @returns size of stream
- *
  **/
 off_t get_stream_size(FILE* stream);
 
 
 /**
- *
  *  Reads dictionary entry from file stream at current position
  *
  *  @param[out] entry          Dictionary entry address
  *  @param[in]  stream         Dictionary entry stream
- *
  **/
 void read_dict_entry(
     bej_dict_entry* entry,
@@ -317,23 +367,19 @@ void read_dict_entry(
 
 
 /**
- *
  *  Frees dictionary entry
  *
  *  @param[inout] entry     Dictionary entry
- *
  **/
 void free_dict_entry(bej_dict_entry* entry);
 
 
 /**
- *
  *  Reads all children of entry by its header
  *
  *  @param[out] children        Dictionary entries array pointer
  *  @param[in]  entry_header    Header of parent entry
  *  @param[in]  stream          Dictionary entry stream
- *
  **/
 void read_dict_entry_children(
     bej_dict_entry** children,
@@ -343,12 +389,10 @@ void read_dict_entry_children(
 
 
 /**
- *
  *  Frees dictionary entry array
  *
  *  @param[inout] children     Dictionary entries array pointer
  *  @param[in] child_count     Entries count
- *
  **/
 void free_dict_entry_children(
     bej_dict_entry** children,

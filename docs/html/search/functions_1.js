@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5flong_5fopt_72',['get_long_opt',['../cmd__options_8h.html#a36cd3f4181d155711ed64ad0a0cedc00',1,'cmd_options.c']]],
-  ['get_5fstream_5fsize_73',['get_stream_size',['../utils_8h.html#ac8322022d7e0c2b40b109f1c007e48ac',1,'utils.c']]]
+  ['free_5fdict_5fentry_179',['free_dict_entry',['../utils_8h.html#af559be37f2212c67f5a04b6cb53a3741',1,'utils.c']]],
+  ['free_5fdict_5fentry_5fchildren_180',['free_dict_entry_children',['../utils_8h.html#a6759256fb712882dff2ed6022dba72f4',1,'utils.c']]]
 ];

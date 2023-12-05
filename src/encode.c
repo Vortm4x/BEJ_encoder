@@ -170,7 +170,7 @@ bool bej_collection_is_not_empty(const char end_delim, FILE* stream)
     return true;
 }
 
-bool bej_is_payload_anotation(char* prop_name)
+bool bej_is_payload_anotation(const char* prop_name)
 {
     if(prop_name == NULL)
     {
@@ -187,8 +187,8 @@ bool bej_is_payload_anotation(char* prop_name)
 
 uint64_t bej_get_entry_by_name(
     const char* prop_name,
-    bej_dict_entry* entries,
-    uint16_t entries_count
+    const bej_dict_entry* entries,
+    const uint16_t entries_count
 )
 {
     if(prop_name == NULL)
@@ -282,9 +282,9 @@ bool bej_encode_sflv(
     FILE* bej_file,
     FILE* schema_dict_file,
     FILE* annotation_dict_file,
-    bej_dict_entry_header* entry_header,
-    bej_tuple_s* tuple_s,
-    bej_tuple_f* tuple_f
+    const bej_dict_entry_header* entry_header,
+    const bej_tuple_s* tuple_s,
+    const bej_tuple_f* tuple_f
 )
 {
     bej_tuple_sfl tuple_sfl;
@@ -643,9 +643,9 @@ bool bej_encode_stream(
     FILE* bej_file,
     FILE* schema_dict_file,
     FILE* annotation_dict_file,
-    bej_dict_entry* entries,
-    uint16_t entries_count,
-    uint8_t entries_selector
+    const bej_dict_entry* entries,
+    const uint16_t entries_count,
+    const uint8_t entries_selector
 )
 {
     char* prop_name = bej_read_prop_name(json_file);
@@ -712,7 +712,7 @@ bool bej_encode_stream(
 
         free(schema_prop);
         free(annotation_prop);
-        free_dict_entry_children(&entries, entry_header.child_count);
+        free_dict_entry_children(&annotation_entries, entry_header.child_count);
     }
     else
     {

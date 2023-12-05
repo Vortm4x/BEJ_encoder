@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quiet_5fopt_106',['quiet_opt',['../structbej__cmd__options.html#a6b2ccbd943c6eef46d38e750ac4a17ac',1,'bej_cmd_options']]]
+  ['offset_216',['offset',['../structbej__dict__entry__header.html#a7e43cd3dc8e485912fac98db2efdfbb1',1,'bej_dict_entry_header']]]
 ];

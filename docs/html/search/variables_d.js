@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['verbose_5fopt_113',['verbose_opt',['../structbej__cmd__options.html#a2ffc0d9fd8c3acf7a66468f06295278a',1,'bej_cmd_options']]]
+  ['reserved_220',['reserved',['../structbej__tuple__f.html#adc4dd05941975ff32b8ce86bc2ecc251',1,'bej_tuple_f']]],
+  ['ro_5fand_5ftla_221',['ro_and_tla',['../structbej__tuple__f.html#a7321279e74aa07872b5bab8effa54954',1,'bej_tuple_f']]]
 ];

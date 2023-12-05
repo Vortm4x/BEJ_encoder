@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['pdrmap_5ffile_5fopt_104',['pdrmap_file_opt',['../structbej__cmd__options.html#a2b5a144b721ed5c0e0204efdf647a368',1,'bej_cmd_options']]],
-  ['pdrmap_5ffile_5fpath_105',['pdrmap_file_path',['../structbej__cmd__options.html#a9c3930236402e56d90fc3c88a480ad86',1,'bej_cmd_options']]]
+  ['name_212',['name',['../structbej__dict__entry.html#a58b894bc4c067f7a1b7c9ad8216a5342',1,'bej_dict_entry']]],
+  ['name_5fofset_213',['name_ofset',['../structbej__dict__entry__header.html#a15732f994a898a7d3b323c6605796756',1,'bej_dict_entry_header']]],
+  ['name_5fsize_214',['name_size',['../structbej__dict__entry__header.html#a3f0f15696c9bbe610c6a126363fc5b36',1,'bej_dict_entry_header']]],
+  ['nullable_215',['nullable',['../structbej__tuple__f.html#a1b01dd69d3a7d6ca1b7da155909e3f7b',1,'bej_tuple_f']]]
 ];

@@ -117,8 +117,8 @@ typedef struct option&#160;</td><td class="memItemRight" valign="bottom"><a clas
 Functions</h2></td></tr>
 <tr class="memitem:ac5857440e2de8f02fc020044536dbb65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmd__options_8h.html#ac5857440e2de8f02fc020044536dbb65">set_opts</a> (int argc, char *const argv[], const <a class="el" href="cmd__options_8h.html#abf875fe3b6ca6815c35e27bad92847d2">bej_long_option</a> *long_opts, const char *short_opts, <a class="el" href="structbej__cmd__options.html">bej_cmd_options</a> *parse_opts)</td></tr>
 <tr class="separator:ac5857440e2de8f02fc020044536dbb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36cd3f4181d155711ed64ad0a0cedc00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmd__options_8h.html#a36cd3f4181d155711ed64ad0a0cedc00">get_long_opt</a> (const <a class="el" href="cmd__options_8h.html#abf875fe3b6ca6815c35e27bad92847d2">bej_long_option</a> *long_opts, const int short_code)</td></tr>
-<tr class="separator:a36cd3f4181d155711ed64ad0a0cedc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e02dfd190a17e6dfb6692c69d1c3ac4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmd__options_8h.html#a8e02dfd190a17e6dfb6692c69d1c3ac4">get_long_opt</a> (const <a class="el" href="cmd__options_8h.html#abf875fe3b6ca6815c35e27bad92847d2">bej_long_option</a> *long_opts, const int option_code)</td></tr>
+<tr class="separator:a8e02dfd190a17e6dfb6692c69d1c3ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae079cbc8e0216685e59273a485007fc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmd__options_8h.html#ae079cbc8e0216685e59273a485007fc8">print_option_hint</a> (const <a class="el" href="cmd__options_8h.html#abf875fe3b6ca6815c35e27bad92847d2">bej_long_option</a> *long_opts, const int option_code, const char *msg)</td></tr>
 <tr class="separator:ae079cbc8e0216685e59273a485007fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d4da0cdc5c248ff10f7fdb4abf64887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmd__options_8h.html#a2d4da0cdc5c248ff10f7fdb4abf64887">print_usage_info</a> (const char *usage[])</td></tr>
@@ -131,8 +131,8 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File contains functions for simplified command line options handling. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a36cd3f4181d155711ed64ad0a0cedc00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36cd3f4181d155711ed64ad0a0cedc00">&#9670;&nbsp;</a></span>get_long_opt()</h2>
+<a id="a8e02dfd190a17e6dfb6692c69d1c3ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e02dfd190a17e6dfb6692c69d1c3ac4">&#9670;&nbsp;</a></span>get_long_opt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +147,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>short_code</em>&#160;</td>
+          <td class="paramname"><em>option_code</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,7 +160,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">long_opts</td><td>Long options array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">short_code</td><td>Short option code </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option_code</td><td>Short option code </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,7 +254,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">long_opts</td><td>Long options array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">short_code</td><td>Short option code </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option_code</td><td>Short option code </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Error message </td></tr>
   </table>
   </dd>

@@ -16,7 +16,6 @@
 
 
 /**
- *
  *  @struct bej_cmd_options
  *  @brief Structure for easy access to command line arguments
  *
@@ -97,7 +96,6 @@ typedef struct option bej_long_option;
 
 
 /**
- *
  *  Retrieve command line options and their arguments from command
  *  line arguments
  *
@@ -108,7 +106,6 @@ typedef struct option bej_long_option;
  *  @param[out] parse_opts  Options structure with arguments
  *  @returns True if options are valid, false otherwise
  *  @warning Long options should have same codes as short equivalents
- *
  **/
 bool set_opts(
     int argc,
@@ -120,29 +117,25 @@ bool set_opts(
 
 
 /**
- *
  *  Get index of long option by its short equivalent
  *
  *  @param[in]  long_opts   Long options array
- *  @param[in]  short_code  Short option code
+ *  @param[in]  option_code  Short option code
  *  @returns Index of option by its option code
  *  or -1 if there is no such option
- *
  **/
 int get_long_opt(
     const bej_long_option* long_opts,
-    const int short_code
+    const int option_code
 );
 
 
 /**
- *
  *  Print error message related to specific option
  *
  *  @param[in]  long_opts   Long options array
- *  @param[in]  short_code  Short option code
+ *  @param[in]  option_code  Short option code
  *  @param[in]  msg         Error message
- *
  **/
 void print_option_hint(
     const bej_long_option* long_opts,
@@ -152,25 +145,21 @@ void print_option_hint(
 
 
 /**
- *
  *  Prints usage info entries as a list.
  *  Each entry printed from new line
  *
  *  @param[in]  usage       Usage info
- *
  **/
 void print_usage_info(const char* usage[]);
 
 
 /**
- *
  *  Prints help info for all options
  *
  *
  *  @param[in]  long_opts   Long options array
  *  @param[in]  opt_descs   String list with options description
  *  @warning Arrays should have same length
- *
  **/
 void print_options_info(
     const bej_long_option* long_opts,
@@ -179,7 +168,6 @@ void print_options_info(
 
 
 /**
- *
  *  Utilizing function to open file by path provided as an option argument.
  *  Prints error message on failure
  *
@@ -189,7 +177,6 @@ void print_options_info(
  *  @param[in]  option_code     Short code of related option
  *  @returns Valid FILE pointer (stream object) on success
  *  or NULL on failure
- *
  **/
 FILE* open_option_file(
     const char* path,

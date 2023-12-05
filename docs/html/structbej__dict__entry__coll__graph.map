@@ -1,4 +1,5 @@
 <map id="bej_dict_entry" name="bej_dict_entry">
-<area shape="rect" id="node1" title="Structure that represents dictionary entry (with name)." alt="" coords="31,95,146,121"/>
-<area shape="rect" id="node2" href="$structbej__dict__entry__header.html" title="Structure that represents dictionary entry (with name)." alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node1" title="Structure that represents dictionary entry (with name)." alt="" coords="31,184,146,211"/>
+<area shape="rect" id="node2" href="$structbej__dict__entry__header.html" title="Structure that represents dictionary entry (with name)." alt="" coords="5,95,172,121"/>
+<area shape="rect" id="node3" href="$structbej__tuple__f.html" title="Structure that represents bejTupleF type." alt="" coords="41,5,136,32"/>
 </map>
