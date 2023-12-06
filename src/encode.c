@@ -154,6 +154,8 @@ bool bej_is_value_null(FILE* stream)
         return false;
     }
 
+    free(str_buffer);
+
     return true;
 }
 
@@ -348,11 +350,11 @@ bool bej_encode_sflv(
                 if(collection_sep != BEJ_CHARACTER_SET_END || !success)
                 {
                     fclose(nested_stream);
-                    free(child_entries);
+                    free_dict_entry_children(&child_entries, entry_header->child_count);
                     return false;
                 }
 
-                free(child_entries);
+                free_dict_entry_children(&child_entries, entry_header->child_count);
             }
             uint64_t count_len = bej_nnint_length(count);
             tuple_sfl.length = count_len + ftello(nested_stream);
@@ -775,6 +777,8 @@ bool bej_encode_stream(
     }
     else
     {
+        free(prop_name);
+
         bool success = bej_encode_sflv(
             json_file, bej_file, schema_dict_file, annotation_dict_file,
             &entry_header, &sequence, &format
